@@ -61,16 +61,16 @@ hr {
 }
 
 pre {
-	position: relative;
 	background: $base-background-color;
 	border: 1px solid darken($base-border-color, 5);
 	color: $base-heading-color;
 	font-family: $monospace;
 	font-size: $secondary-font-size;
 	margin-bottom: 26px;
-	padding: 3% 10% 3% 5%;
-	overflow: auto;
 	max-width: 100%;
+	overflow: auto;
+	padding: 3% 10% 3% 5%;
+	position: relative;
 	tab-size: 4;
 }
 

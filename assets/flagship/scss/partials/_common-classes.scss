@@ -54,8 +54,8 @@
 --------------------------------------------- */
 
 .search-form {
-	position: relative;
 	display: block;
+	position: relative;
 
 	input[type=search] {
 		@include appearance(none);
@@ -172,14 +172,14 @@ img.alignright,
 
 .off-screen,
 .screen-reader-text {
-	position: absolute;
-	margin: -1px;
-	padding: 0;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	clip: rect(0 0 0 0);
 	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
 
 	&:focus {
 		outline: 0;

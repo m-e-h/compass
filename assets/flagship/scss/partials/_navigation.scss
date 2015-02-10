@@ -196,15 +196,15 @@
 }
 
 .sidr {
+	background: $sidr-background-color;
 	display: none;
-	position: fixed;
-	top: 0;
 	height: 100%;
-	z-index: $sidr-z-index;
-	width: 260px;
 	overflow-x: hidden;
 	overflow-y: auto;
-	background: $sidr-background-color;
+	position: fixed;
+	top: 0;
+	width: 260px;
+	z-index: $sidr-z-index;
 
 	&.right {
 		/* @noflip */
@@ -226,44 +226,42 @@
 		}
 
 		li a {
+			border-bottom: 1px solid $sidr-border-color;
 			color: $sidr-color;
 			padding: $sidr-item-padding;
-			border-bottom: 1px solid $sidr-border-color;
 		}
 
 		li a:hover,
 		li a:focus {
-			color: $sidr-hover-color;
 			background: lighten($sidr-background-color, 3);
+			color: $sidr-hover-color;
 		}
 	}
 
 	.sub-menu,
 	.sub-menu .sub-menu {
-		position: static;
-		width: 100%;
-		margin: 0;
 		background: transparent;
 		border-top: 0;
-		opacity: 1;
 		box-shadow: none;
+		margin: 0;
+		opacity: 1;
+		position: static;
+		width: 100%;
 
 		li a {
-			width: auto;
+			background: $sidr-background-color;
+			border: 0;
+			border-bottom: 1px solid $sidr-border-color;
+			color: $sidr-subnav-color;
 			padding: $sidr-item-padding;
 			padding-left: $sidr-item-padding + 10px;
-			color: $sidr-subnav-color;
-			background: $sidr-background-color;
-			border-bottom: 1px solid $sidr-border-color;
-			border-top: 0;
-			border-left: 0;
-			border-right: 0;
+			width: auto;
 		}
 
 		li a:hover,
 		li a:focus {
-			color: $sidr-hover-color;
 			background: lighten($sidr-background-color, 3);
+			color: $sidr-hover-color;
 		}
 	}
 
@@ -277,9 +275,9 @@
 --------------------------------------------- */
 
 .pagination {
+	display: block;
 	margin-bottom: 20px;
 	text-align: center;
-	display: block;
 
 	.page-numbers {
 		@include transition (all 0.2s ease-in-out);
@@ -330,12 +328,12 @@
 .nav-single {
 	display: block;
 	clear: both;
-	overflow: hidden;
-	margin-bottom: 20px;
-	padding: 0;
 	font-size: $pagination-font-size;
-	text-transform: uppercase;
 	letter-spacing: 1px;
+	margin-bottom: 20px;
+	overflow: hidden;
+	padding: 0;
+	text-transform: uppercase;
 
 	@include media($medium-screen-up) {
 		.nav-previous {
@@ -372,17 +370,17 @@
 --------------------------------------------- */
 
 .page-links {
-	margin: 30px 0;
 	display: block;
+	margin: 30px 0;
 
 	span,
 	a {
 		@include transition (all 0.2s ease-in-out);
+		border: 1px solid $page-links-border-color;
 		border-radius: $base-border-radius;
+		color: $page-links-link-color;
 		display: inline-block;
 		padding: 5px 15px;
-		border: 1px solid $page-links-border-color;
-		color: $page-links-link-color;
 	}
 
 	span {
