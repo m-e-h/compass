@@ -86,11 +86,11 @@ newtheme:
 # Package the distribution files into a zip
 package:
   - build
-  - "compress:dist"
+  - 'compress:dist'
 # Package developer files into a zip
 'package:dev':
   - build
-  - "compress:dev"
+  - 'compress:dev'
 # Update reports
 reports:
   - plato
