@@ -56,12 +56,3 @@ function compass_do_sticky_banner() {
 	</div>
 	<?php
 }
-
-/**
- * Display footer credits for the theme.
- *
- * @since      1.0.0
- * @return     void
- * @deprecated This was moved into the footer.php template and will be deleted.
- */
-function compass_footer_creds() {}
