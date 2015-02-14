@@ -29,7 +29,8 @@
 
 		<?php else : ?>
 
-			<?php the_widget(
+			<?php
+			the_widget(
 				'WP_Widget_Text',
 				array(
 					'title'  => __( 'Example Widget', 'compass' ),
@@ -43,7 +44,8 @@
 					'before_title'  => '<h3 class="widget-title">',
 					'after_title'   => '</h3>',
 				)
-			); ?>
+			);
+			?>
 
 		<?php endif; // End widgets check. ?>
 

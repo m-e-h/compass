@@ -39,7 +39,7 @@ function compass_jetpack_setup() {
 	);
 
 	// Remove Cleaner Gallery support if any conflicting modules are active.
-	if ( count( array_intersect( $conflicts, (array) $modules ) ) !== 0 ) {
+	if ( 0 !== count( array_intersect( $conflicts, (array) $modules ) ) ) {
 		remove_theme_support( 'cleaner-gallery' );
 	}
 }

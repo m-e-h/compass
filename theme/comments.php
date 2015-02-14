@@ -25,13 +25,15 @@ if ( post_password_required() || ( ! have_comments() && ! comments_open() && ! p
 		<h3 class="comments-number" id="comments-number"><?php comments_number(); ?></h3>
 
 		<ol class="comment-list">
-			<?php wp_list_comments(
+			<?php
+			wp_list_comments(
 				array(
 					'style'        => 'ol',
 					'callback'     => 'hybrid_comments_callback',
 					'end-callback' => 'hybrid_comments_end_callback',
 				)
-			); ?>
+			);
+			?>
 		</ol><!-- .comment-list -->
 
 		<?php locate_template( array( 'misc-templates/comments-nav.php' ), true ); ?>
