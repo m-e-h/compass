@@ -80,9 +80,6 @@ function compass_setup() {
 	// https://github.com/justintadlock/hybrid-core/blob/master/extensions/cleaner-caption.php
 	add_theme_support( 'cleaner-caption' );
 
-	// http://themehybrid.com/docs/loop-pagination
-	add_theme_support( 'loop-pagination' );
-
 	// http://themehybrid.com/docs/template-hierarchy
 	add_theme_support( 'hybrid-core-template-hierarchy' );
 
