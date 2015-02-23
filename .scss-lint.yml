@@ -23,7 +23,7 @@ linters:
     allow_element_with_attribute: true
     exclude: # These files currently have qualifying elements
       - 'assets/flagship/scss/partials/_common-classes.scss'
-      - 'assets/flagship/scss/partials/_gravity-forms.scss'
+      - 'assets/flagship/scss/partials/_plugins.scss'
       - 'assets/flagship/scss/partials/_jetpack.scss'
       - 'assets/flagship/scss/partials/_reset.scss'
 
@@ -33,7 +33,7 @@ linters:
   SelectorFormat:
     exclude: # These files have underscore selectors because of WordPress or plugins.
       - 'assets/flagship/scss/partials/_genericons.scss'
-      - 'assets/flagship/scss/partials/_gravity-forms.scss'
+      - 'assets/flagship/scss/partials/_plugins.scss'
       - 'assets/flagship/scss/partials/_jetpack.scss'
       - 'assets/flagship/scss/partials/_sidebars.scss'
       - 'assets/flagship/scss/partials/_widgets.scss'
