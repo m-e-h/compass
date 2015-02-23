@@ -8,7 +8,7 @@
  * @license     GPL-2.0+
  * @since       1.0.0
  */
-add_filter( 'wp_nav_menu_args', 'flagship_header_menu_args' );
+add_filter( 'wp_nav_menu_args', 'flagship_widget_menu_args' );
 add_filter( 'wp_nav_menu', 'flagship_header_menu_wrap' );
 
 if ( is_active_sidebar( 'header-right' ) ) : ?>
@@ -46,5 +46,5 @@ if ( ! is_active_sidebar( 'header-right' ) && current_user_can( 'edit_theme_opti
 
 endif;
 
-remove_filter( 'wp_nav_menu_args', 'flagship_header_menu_args' );
+remove_filter( 'wp_nav_menu_args', 'flagship_widget_menu_args' );
 remove_filter( 'wp_nav_menu', 'flagship_header_menu_wrap' );
