@@ -26,6 +26,9 @@ add_action( 'after_setup_theme', 'compass_setup', 10 );
  * @return  void
  */
 function compass_setup() {
+	// https://codex.wordpress.org/Title_Tag
+	add_theme_support( 'title-tag' );
+
 	// http://themehybrid.com/docs/theme-layouts
 	add_theme_support(
 		'theme-layouts',
