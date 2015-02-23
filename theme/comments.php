@@ -36,11 +36,11 @@ if ( post_password_required() || ( ! have_comments() && ! comments_open() && ! p
 			?>
 		</ol><!-- .comment-list -->
 
-		<?php locate_template( array( 'misc-templates/comments-nav.php' ), true ); ?>
+		<?php get_template_part( 'comment/navigation' ); ?>
 
 	<?php endif; // End check for comments. ?>
 
-	<?php locate_template( array( 'misc-templates/comments-error.php' ), true ); ?>
+	<?php get_template_part( 'comment/error' ); ?>
 
 	<?php comment_form(); ?>
 
