@@ -20,8 +20,8 @@
 		<?php
 		paginate_comments_links(
 			array(
-				'prev_text' => sprintf( '<span class="screen-reader-text">%s</span>' , __( 'Previous Comment Page', 'flagship' ) ),
-				'next_text' => sprintf( '<span class="screen-reader-text">%s</span>', __( 'Next Comment Page', 'flagship' ) ),
+				'prev_text' => sprintf( '<span class="screen-reader-text">%s</span>' , __( 'Previous Comment Page', 'compass' ) ),
+				'next_text' => sprintf( '<span class="screen-reader-text">%s</span>', __( 'Next Comment Page', 'compass' ) ),
 			)
 		);
 		?>
