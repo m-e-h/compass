@@ -77,12 +77,6 @@ function compass_setup() {
 	// https://github.com/justintadlock/get-the-image
 	add_theme_support( 'get-the-image' );
 
-	// https://github.com/justintadlock/cleaner-gallery
-	add_theme_support( 'cleaner-gallery' );
-
-	// https://github.com/justintadlock/hybrid-core/blob/master/extensions/cleaner-caption.php
-	add_theme_support( 'cleaner-caption' );
-
 	// http://themehybrid.com/docs/template-hierarchy
 	add_theme_support( 'hybrid-core-template-hierarchy' );
 
