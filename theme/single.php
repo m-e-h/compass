@@ -31,7 +31,7 @@
 
 				<?php get_template_part( 'misc-templates/author-box' ); ?>
 
-				<?php get_template_part( 'misc-templates/loop-nav' ); ?>
+				<?php flagship_post_navigation(); ?>
 
 				<?php comments_template( '', true ); ?>
 

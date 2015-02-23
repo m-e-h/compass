@@ -35,7 +35,7 @@
 
 			<?php endwhile; ?>
 
-			<?php get_template_part( 'misc-templates/loop-nav' ); ?>
+			<?php flagship_posts_navigation(); ?>
 
 		<?php else : ?>
 
