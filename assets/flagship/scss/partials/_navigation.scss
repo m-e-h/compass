@@ -271,7 +271,7 @@
 }
 
 
-/* Pagination
+/* Loop Pagination
 --------------------------------------------- */
 
 .pagination {
@@ -322,51 +322,8 @@
 	}
 }
 
-/* Single Entry Pagination
---------------------------------------------- */
 
-.nav-single {
-	display: block;
-	clear: both;
-	font-size: $pagination-font-size;
-	letter-spacing: 1px;
-	margin-bottom: 20px;
-	overflow: hidden;
-	padding: 0;
-	text-transform: uppercase;
-
-	@include media($medium-screen-up) {
-		.nav-previous {
-			float: left;
-		}
-
-		.nav-next {
-			float: right;
-		}
-	}
-
-	.nav-next a,
-	.nav-previous a {
-		background: $nav-single-background-color;
-		border-radius: $base-border-radius;
-		border: 1px solid $nav-single-border-color;
-		color: $nav-single-link-color;
-		display: block;
-		margin: 0 0 10px;
-		padding: 16px 20px 14px;
-		text-align: center;
-	}
-
-	.nav-next a:hover,
-	.nav-previous a:hover,
-	.nav-next a:focus,
-	.nav-previous a:focus {
-		background: $nav-single-background-hover-color;
-		color: $nav-single-link-color;
-	}
-}
-
-/* Page Links
+/* Single Post Pagination
 --------------------------------------------- */
 
 .page-links {
@@ -396,4 +353,80 @@
 			color: $page-links-link-color;
 		}
 	}
+}
+
+
+/* Page Links
+--------------------------------------------- */
+
+.nav-next a {
+
+	@include media($medium-screen-up) {
+		float: right;
+	}
+
+	&:after {
+		content: "\2192";
+		padding-left: 10px;
+	}
+}
+
+.nav-previous a {
+
+	@include media($medium-screen-up) {
+		float: left;
+	}
+
+	&:before {
+		content: "\2190";
+		padding-right: 10px;
+	}
+}
+
+.nav-next a,
+.nav-previous a {
+	background: $nav-single-background-color;
+	border-radius: $base-border-radius;
+	border: 1px solid $nav-single-border-color;
+	color: $nav-single-link-color;
+	display: block;
+	margin: 0 0 10px;
+	padding: 16px 20px 14px;
+	text-align: center;
+}
+
+.nav-next a:hover,
+.nav-previous a:hover,
+.nav-next a:focus,
+.nav-previous a:focus {
+	background: $nav-single-background-hover-color;
+	color: $nav-single-link-color;
+}
+
+/* Loop Page Links
+--------------------------------------------- */
+
+.nav-archive {
+	display: block;
+	clear: both;
+	font-size: $pagination-font-size;
+	letter-spacing: 1px;
+	margin-bottom: 20px;
+	overflow: hidden;
+	padding: 0;
+	text-transform: uppercase;
+}
+
+/* Single Entry Page Links
+--------------------------------------------- */
+
+.nav-single {
+	display: block;
+	clear: both;
+	font-size: $pagination-font-size;
+	letter-spacing: 1px;
+	margin-bottom: 20px;
+	overflow: hidden;
+	padding: 0;
+	text-transform: uppercase;
 }
