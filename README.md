@@ -1,5 +1,7 @@
 # Flagship Compass
 
+[![devDependency Status](https://david-dm.org/FlagshipWP/compass/dev-status.svg)](https://david-dm.org/FlagshipWP/compass#info=devDependencies)
+
 The most advanced WordPress Starter theme ever created.
 
 __Contributors:__ [Robert Neu](https://github.com/robneu), [Gary Jones](https://github.com/GaryJones)  
