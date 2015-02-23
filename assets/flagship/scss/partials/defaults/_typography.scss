@@ -164,9 +164,9 @@ h4,
 h5,
 h6 {
 	color: $base-heading-color;
-	font-family: $header-font-family;
+	font-family: $heading-font-family;
 	font-weight: 400;
-	line-height: $header-line-height;
+	line-height: $heading-line-height;
 	margin: 0 0 10px;
 	text-rendering: optimizeLegibility; // Fix the character spacing for headings
 }
