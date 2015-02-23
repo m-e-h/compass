@@ -86,7 +86,7 @@ function compass_setup() {
 	// http://themehybrid.com/docs/template-hierarchy
 	add_theme_support( 'hybrid-core-template-hierarchy' );
 
-	// Add support for flagship footer widgets.
+	// https://github.com/FlagshipWP/flagship-library/wiki/Flagship-Footer-Widgets
 	add_theme_support( 'flagship-footer-widgets', 3 );
 }
 
