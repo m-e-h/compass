@@ -28,18 +28,4 @@ function compass_jetpack_setup() {
 		'container' => 'main',
 		'footer'    => 'page',
 	) );
-
-	// Get the active jetpack modules.
-	$modules   = get_option( 'jetpack_active_modules' );
-
-	// List all modules which conflict with the Cleaner Gallery feature.
-	$conflicts = array(
-		'tiled-gallery',
-		'carousel',
-	);
-
-	// Remove Cleaner Gallery support if any conflicting modules are active.
-	if ( 0 !== count( array_intersect( $conflicts, (array) $modules ) ) ) {
-		remove_theme_support( 'cleaner-gallery' );
-	}
 }
