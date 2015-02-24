@@ -40,6 +40,7 @@ module.exports = {
 		],
 		tasks: [
 			'sass:theme',
+			'usebanner:theme',
 			'autoprefixer',
 			'wpcss:css',
 			'cssjanus',
