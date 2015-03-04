@@ -92,3 +92,7 @@ package:
 'package:dev':
   - build
   - 'compress:dev'
+reports:
+  - 'phpcs'
+  - 'phpmd'
+  - 'phpcpd'
