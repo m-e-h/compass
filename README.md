@@ -11,6 +11,10 @@ __License:__ [GPL-2.0+](http://www.gnu.org/licenses/gpl-2.0.html)
 
 Compass will revolutionize your theme development workflow by removing all the guesswork and letting you focus on the fun stuff. Built using the latest and greatest web development tools like Grunt, Sass, Bourbon, and Hybrid Core.
 
+## Learn How to Use Compass
+
+Compass is designed to be a boilerplate for your own custom WordPress themes. For more information about how to [install](https://github.com/FlagshipWP/compass/wiki/Installing-Compass) and use Compass, visit the [Compass Wiki](https://github.com/FlagshipWP/compass/wiki) and our [community forum](http://community.flagshipwp.com/category/compass). If you find any bugs, issues, or have questions please open an issue or create a thread on the forum. Thanks for giving Compass a look! We can't wait to see what you build with it.
+
 ### Project Structure
 
     ├── assets
@@ -25,7 +29,6 @@ Compass will revolutionize your theme development workflow by removing all the g
     │   ├── config
     │   └── tasks
     ├── logs (added by build/check tasks)
-    ├── reports (added by plato task)
     ├── theme
     │   ├── comment
     │   ├── content
@@ -43,11 +46,6 @@ Compass will revolutionize your theme development workflow by removing all the g
     │   ├── misc-templates
     │   └── sidebar
     └── tmp (added by build task)
-
-
-## Learn How to Use Compass
-
-Compass is designed to be a boilerplate for your own custom WordPress themes. For more information about how to [install](https://github.com/FlagshipWP/compass/wiki/Installing-Compass) and use Compass, visit the [Compass Wiki](https://github.com/FlagshipWP/compass/wiki) and our [community forum](http://community.flagshipwp.com/category/compass). If you find any bugs, issues, or have questions please open an issue or create a thread on the forum. Thanks for giving Compass a look! We can't wait to see what you build with it.
 
 ## Contributing
 
