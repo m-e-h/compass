@@ -73,6 +73,7 @@ check:
   - 'phplint'
   - 'phpcs'
   - 'checktextdomain'
+  - 'complexity'
 # Pre-commit hook task
 commit:
   - 'check'
