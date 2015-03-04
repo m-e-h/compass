@@ -172,7 +172,10 @@
 
 	.entry-meta {
 		margin: 0;
-		padding: 0 0 26px;
+
+		&:last-of-type {
+			padding: 0 0 26px;
+		}
 	}
 
 	.entry-terms {
