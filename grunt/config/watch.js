@@ -1,9 +1,9 @@
 // https://github.com/gruntjs/grunt-contrib-watch
 module.exports = {
+	options: {
+		livereload: true
+	},
 	grunt: {
-		options: {
-			livereload: true
-		},
 		files: [
 			'<%= files.grunt %>',
 			'<%= files.config %>'
