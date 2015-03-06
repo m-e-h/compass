@@ -22,10 +22,7 @@ if ( is_active_sidebar( 'header-right' ) ) : ?>
 
 	<?php
 
-endif;
-
-// Add a notice about the widget area for logged-in users if no widgets are added.
-if ( ! is_active_sidebar( 'header-right' ) && current_user_can( 'edit_theme_options' ) ) :
+elseif ( current_user_can( 'edit_theme_options' ) ) :
 
 	?>
 	<div <?php hybrid_attr( 'header-right' ); ?>>
@@ -34,9 +31,9 @@ if ( ! is_active_sidebar( 'header-right' ) && current_user_can( 'edit_theme_opti
 			<?php _e( 'This is a widget area! It\'s perfect for a custom menu.', 'compass' ); ?>
 
 			<?php
-			printf( '<a class="button" href="%s">%s</a>',
-				esc_url( admin_url( 'customize.php' ) ),
-				__( 'Customize Now', 'compass' )
+			printf(	'<a class="button" href="%1$s">%2$s</a>',
+				flagship_get_customizer_link(),
+				__( 'Customize Now' )
 			);
 			?>
 		</p>
