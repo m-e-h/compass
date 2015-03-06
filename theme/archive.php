@@ -25,7 +25,7 @@
 
 		<?php hybrid_get_menu( 'breadcrumbs' ); ?>
 
-		<?php get_template_part( 'misc-templates/loop-meta' ); ?>
+		<?php get_template_part( 'content/parts/loop-meta' ); ?>
 
 		<?php if ( have_posts() ) : ?>
 

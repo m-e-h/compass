@@ -31,7 +31,7 @@
 
 		<?php if ( ! is_front_page() && ! is_home() && ! is_404() ) : ?>
 
-			<?php get_template_part( 'misc-templates/loop-meta' ); ?>
+			<?php get_template_part( 'content/parts/loop-meta' ); ?>
 
 		<?php endif; ?>
 
