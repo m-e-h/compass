@@ -3,52 +3,36 @@
  *
  * Includes all JS which is required within all sections of the theme.
  */
-
 window.compass = window.compass || {};
 
 (function( window, $, undefined ) {
 	'use strict';
 
-	var compass = window.compass;
+	var $window = $( window ),
+		$body   = $( 'body' ),
+		compass = window.compass;
 
 	$.extend( compass, {
 
-		//* Skip Link Focus Fix
-		skipLinks: function() {
-			var eventMethod,
-				isWebkit = navigator.userAgent.toLowerCase().indexOf( 'webkit' ) > -1,
-				isOpera  = navigator.userAgent.toLowerCase().indexOf( 'opera' )  > -1,
-				isIe     = navigator.userAgent.toLowerCase().indexOf( 'msie' )   > -1;
-
-			if ( ( isWebkit || isOpera || isIe ) && 'undefined' !== typeof( document.getElementById ) ) {
-				eventMethod = ( window.addEventListener ) ? 'addEventListener' : 'attachEvent';
-				window[ eventMethod ]( 'hashchange', function() {
-					var element = document.getElementById( location.hash.substring( 1 ) );
-
-					if ( element ) {
-						if ( ! /^(?:a|select|input|button|textarea)$/i.test( element.tagName ) ) {
-							element.tabIndex = -1;
-						}
-
-						element.focus();
-					}
-				}, false );
-			}
+		//* Global script initialization
+		globalInit: function() {
+			$( document ).compassSkipLinks();
+			$( document ).gamajoAccessibleMenu();
+			$( '#site-inner' ).fitVids();
 		},
 
-		//* Mobile Menu
-		mobileNav: function() {
+		mobileMenu: function() {
 			var menuSelectors = [],
-				menuSide      = 'right',
+				menuSide      = $body.hasClass( 'rtl' ) ? 'left' : 'right',
 				name          = 'sidr-main',
-				responsiveMenuButton = $( '<button type="button" id="responsive-menu-button" class="menu-button" aria-expanded="false"></button>' );
+				menuButton    = $( '<button type="button" id="responsive-menu-button" class="menu-button" aria-expanded="false"></button>' );
 
 			if ( $( '#menu-header' ).length ) {
 				menuSelectors.push( '#menu-header' );
 			}
 
-			if ( $( '#after-header' ).length ) {
-				menuSelectors.push( '#menu-after-header' );
+			if ( $( '#menu-primary' ).length ) {
+				menuSelectors.push( '#menu-primary' );
 			}
 
 			//* End here if we don't have a menu.
@@ -57,26 +41,21 @@ window.compass = window.compass || {};
 			}
 
 			//* Add a responsive menu button.
-			$( '#branding' ).before( responsiveMenuButton );
-
-			//* Switch the menu side if a RTL langauge is in use.
-			if ( $( 'body' ).hasClass( 'rtl' ) ) {
-				menuSide = 'left';
-			}
+			$( '#branding' ).before( menuButton );
 
 			//* Sidr menu init.
-			responsiveMenuButton.sidr( {
-				name: name,
+			menuButton.sidr( {
+				name:     name,
 				renaming: false,
-				side: menuSide,
-				source: menuSelectors.toString(),
+				side:     menuSide,
+				source:   menuSelectors.toString(),
 				onOpen: function() {
 					var navEl        = $( '#' + name ),
 						navItems     = $( '#' + name + ' a' ),
 						firstNavItem = navItems.first(),
 						lastNavItem  = navItems.last();
 
-					responsiveMenuButton.toggleClass( 'activated' ).attr( 'aria-expanded', true );
+					menuButton.toggleClass( 'activated' ).attr( 'aria-expanded', true );
 					$( '.site-container' ).on( 'click.CloseSidr', function( event ) {
 						$.sidr( 'close', name );
 						event.preventDefault();
@@ -91,60 +70,50 @@ window.compass = window.compass || {};
 						}
 						// When tabbing forwards and tabbing out of the last link.
 						if ( lastNavItem[0] === event.target && ! event.shiftKey ) {
-							responsiveMenuButton.focus();
+							menuButton.focus();
 							return false;
 						// When tabbing backwards and tabbing out of the first link OR the menu container.
 						} else if ( ( firstNavItem[0] === event.target || navEl[0] === event.target ) && event.shiftKey ) {
-							responsiveMenuButton.focus();
+							menuButton.focus();
 							return false;
 						}
 					});
 					// When focus is on the toggle button.
-					responsiveMenuButton.on( 'keydown.sidrNav', function( event ) {
+					menuButton.on( 'keydown.sidrNav', function( event ) {
 						// If it's not the tab key then return.
 						if ( 9 !== event.keyCode ) {
 							return;
 						}
 						// when tabbing forwards
-						if ( responsiveMenuButton[0] === event.target && ! event.shiftKey ) {
+						if ( menuButton[0] === event.target && ! event.shiftKey ) {
 							navEl.focus();
 							return false;
 						}
 					});
 				},
 				onClose: function() {
-					responsiveMenuButton.toggleClass( 'activated' ).attr( 'aria-expanded', false );
+					menuButton.toggleClass( 'activated' ).attr( 'aria-expanded', false );
 					$( '.site-container' ).off( 'click.CloseSidr' );
 					// Remove the toggle button keydown event.
-					responsiveMenuButton.off( 'keydown.sidrNav' );
+					menuButton.off( 'keydown.sidrNav' );
 				}
+
 			});
 
 			//* Close sidr menu if open on larger screens
-			$( window ).resize(function() {
-				if( window.innerWidth > 1023 ) {
+			$window.resize(function() {
+				if ( window.innerWidth >= 1024 ) {
 					$.sidr('close', 'sidr-main');
-					responsiveMenuButton.attr( 'aria-expanded', false );
+					menuButton.attr( 'aria-expanded', false );
 				}
 			});
-		},
-
-		//* FitVids Init
-		loadFitVids: function() {
-			if ( $.fn.fitVids ) {
-				$( '#site-inner' ).fitVids();
-			}
 		}
 
 	});
 
 	// Document ready.
 	jQuery(function() {
-		compass.skipLinks();
-		compass.mobileNav();
-		compass.loadFitVids();
-		jQuery( document ).gamajoAccessibleMenu();
+		compass.globalInit();
+		compass.mobileMenu();
 	});
 })( this, jQuery );
-
-// jQuery(document).gamajoAccessibleMenu();
