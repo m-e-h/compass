@@ -51,7 +51,7 @@ function compass_setup() {
 	add_theme_support( 'hybrid-core-styles', array( 'style', 'google-fonts', 'genericons', ) );
 
 	// Add navigation menus.
-	register_nav_menu( 'after-header', _x( 'After Header Menu', 'nav menu location', 'compass' ) );
+	register_nav_menu( 'primary', _x( 'Primary Menu', 'nav menu location', 'compass' ) );
 
 	$formats = array(
 		'aside',

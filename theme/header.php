@@ -55,4 +55,4 @@
 
 		<?php tha_header_after(); ?>
 
-		<?php hybrid_get_menu( 'after-header' ); ?>
+		<?php hybrid_get_menu( 'primary' ); ?>

@@ -143,12 +143,12 @@
 }
 
 
-/* After Header Navigation
+/* Primary Navigation
 --------------------------------------------- */
 
-.menu-after-header {
-	background-color: $after-header-background-color;
-	border-bottom: 1px solid $after-header-border-color;
+.menu-primary {
+	background-color: $primary-background-color;
+	border-bottom: 1px solid $primary-border-color;
 	display: none;
 
 	@include media($medium-screen-up) {
@@ -156,7 +156,7 @@
 	}
 
 	li > a {
-		color: $after-header-link-color;
+		color: $primary-link-color;
 	}
 
 	li > a:hover,
@@ -164,7 +164,7 @@
 	.current-menu-item > a,
 	.sub-menu .current-menu-item > a:hover,
 	.sub-menu .current-menu-item > a:focus {
-		color: $after-header-link-hover-color;
+		color: $primary-link-hover-color;
 	}
 }
 
