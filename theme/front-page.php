@@ -27,7 +27,11 @@
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
+				<?php tha_entry_before(); ?>
+
 				<?php hybrid_get_content_template(); ?>
+
+				<?php tha_entry_after(); ?>
 
 			<?php endwhile; ?>
 
