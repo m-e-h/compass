@@ -33,8 +33,6 @@
 
 				<?php tha_entry_after(); ?>
 
-				<?php get_template_part( 'misc-templates/author-box' ); ?>
-
 				<?php flagship_post_navigation(); ?>
 
 				<?php comments_template( '', true ); ?>
