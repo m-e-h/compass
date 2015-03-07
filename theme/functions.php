@@ -50,6 +50,9 @@ function compass_setup() {
 	// http://themehybrid.com/docs/hybrid-core-styles
 	add_theme_support( 'hybrid-core-styles', array( 'style', 'google-fonts', 'genericons', ) );
 
+	// https://github.com/FlagshipWP/flagship-library/wiki/Flagship-Site-Logo
+	add_theme_support( 'site-logo' );
+
 	// Add navigation menus.
 	register_nav_menu( 'primary', _x( 'Primary Menu', 'nav menu location', 'compass' ) );
 
