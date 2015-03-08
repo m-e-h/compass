@@ -45,7 +45,7 @@ module.exports = {
 			'wpcss:css',
 			'cssjanus',
 			'cssmin:style',
-			'replace:style',
+			'usebanner',
 			'copy:css'
 		]
 	}

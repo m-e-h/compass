@@ -26,14 +26,14 @@ module.exports = function( grunt ) {
 			get tasks() {
 				return this.grunt + 'tasks/';
 			},
-			assets: 'assets/',
-			dist: 'dist/',
-			docs: 'docs/',
-			grunt: 'grunt/',
+			assets:    'assets/',
+			dist:      'dist/',
+			docs:      'docs/',
+			grunt:     'grunt/',
 			languages: 'languages/',
-			logs: 'logs/',
-			theme: 'theme/',
-			tmp: 'tmp/'
+			logs:      'logs/',
+			theme:     'theme/',
+			tmp:       'tmp/'
 		},
 		files: {
 			get php() {
@@ -63,10 +63,10 @@ module.exports = function( grunt ) {
 		jitGrunt: {
 			staticMappings: {
 				addtextdomain: 'grunt-wp-i18n',
-				makepot: 'grunt-wp-i18n',
-				scsslint: 'grunt-scss-lint',
-				usebanner: 'grunt-banner',
-				wpcss: 'grunt-wp-css'
+				makepot:       'grunt-wp-i18n',
+				scsslint:      'grunt-scss-lint',
+				usebanner:     'grunt-banner',
+				wpcss:         'grunt-wp-css'
 			},
 			loadTasks: project.paths.tasks
 		}
