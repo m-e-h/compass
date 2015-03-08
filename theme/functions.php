@@ -54,7 +54,8 @@ function compass_setup() {
 	add_theme_support( 'site-logo' );
 
 	// Add navigation menus.
-	register_nav_menu( 'primary', _x( 'Primary Menu', 'nav menu location', 'compass' ) );
+	register_nav_menu( 'primary',   _x( 'Primary Menu', 'nav menu location', 'compass' ) );
+	register_nav_menu( 'secondary', _x( 'Secondary Menu', 'nav menu location', 'compass' ) );
 
 	$formats = array(
 		'aside',
