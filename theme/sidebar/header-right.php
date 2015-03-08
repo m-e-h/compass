@@ -2,6 +2,8 @@
 /**
  * Header Right Sidebar Template
  *
+ * Currently not in use.
+ *
  * @package     Compass
  * @subpackage  HybridCore
  * @copyright   Copyright (c) 2015, Flagship Software, LLC
@@ -33,7 +35,7 @@ elseif ( current_user_can( 'edit_theme_options' ) ) :
 			<?php
 			printf(	'<a class="button" href="%1$s">%2$s</a>',
 				flagship_get_customizer_link(),
-				__( 'Customize Now' )
+				__( 'Customize Now', 'compass' )
 			);
 			?>
 		</p>

@@ -26,15 +26,4 @@ function compass_register_sidebars() {
 			'description' => __( 'The main sidebar. It is displayed on either the left or right side of the page based on the chosen layout.', 'compass' ),
 		)
 	);
-	hybrid_register_sidebar(
-		array(
-			'id'            => 'header-right',
-			'name'          => _x( 'Header Right', 'sidebar', 'compass' ),
-			'description'   => __( 'The header right sidebar area. It is displayed to the right of the site title area.', 'compass' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<span class="widget-title">',
-			'after_title'   => '</span>',
-		)
-	);
 }
