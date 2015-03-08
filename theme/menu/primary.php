@@ -29,12 +29,32 @@
 				'menu_id'         => 'primary',
 				'menu_class'      => 'nav-menu primary',
 				'fallback_cb'     => '',
-				'items_wrap'      => '<div ' . hybrid_get_attr( 'wrap', 'primary' ) . '><ul id="%s" class="%s">%s</ul></div>',
+				'items_wrap'      => '<div ' . hybrid_get_attr( 'wrap', 'primary-menu' ) . '><ul id="%s" class="%s">%s</ul></div>',
 			)
 		);
 		?>
 
 	</nav><!-- #menu-primary -->
+
+<?php elseif ( current_user_can( 'edit_theme_options' ) ) : ?>
+
+	<div class="header-right">
+		<p class="no-menu">
+
+			<?php _e( "Ready to add your primary menu? Let's get started!", 'compass' ); ?>
+
+			<?php
+			printf(	'<a class="button" href="%1$s">%2$s</a>',
+				flagship_get_customizer_link(  array(
+					'focus_type'   => 'section',
+					'focus_target' => 'nav',
+				) ),
+				__( 'Add a Menu', 'compass' )
+			);
+			?>
+
+		</p>
+	</div><!-- .header-right -->
 
 	<?php
 
