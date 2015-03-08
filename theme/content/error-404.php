@@ -10,9 +10,6 @@
  * @since       1.0.0
  */
 ?>
-
-<?php tha_entry_before(); ?>
-
 <article class="entry error-404 not-found">
 
 	<?php tha_entry_top(); ?>
@@ -42,6 +39,3 @@
 	<?php tha_entry_bottom(); ?>
 
 </article><!-- .error-404 -->
-
-<?php
-tha_entry_after();
