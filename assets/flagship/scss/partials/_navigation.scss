@@ -103,9 +103,11 @@
 --------------------------------------------- */
 
 .site-header .menu-primary {
-	@include span-columns(9);
-	float: right;
-	text-align: right;
+	@include media($medium-screen-up) {
+		@include span-columns(9);
+		float: right;
+		text-align: right;
+	}
 }
 
 .menu-primary {
@@ -193,8 +195,14 @@
 		display: none;
 	}
 
-	&:hover {
+	&:hover,
+	&:focus,
+	&:active {
 		background: lighten($menu-button-background-color, 5%);
+
+		@include media($medium-screen-up) {
+			display: none;
+		}
 	}
 
 	&::before {
