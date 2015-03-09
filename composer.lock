@@ -107,12 +107,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FlagshipWP/flagship-library.git",
-                "reference": "b6dde9b15029140dd4787a49628bd2ad210eda64"
+                "reference": "55ac31a8525976edbee8d041323fa84c1b53204b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FlagshipWP/flagship-library/zipball/b6dde9b15029140dd4787a49628bd2ad210eda64",
-                "reference": "b6dde9b15029140dd4787a49628bd2ad210eda64",
+                "url": "https://api.github.com/repos/FlagshipWP/flagship-library/zipball/55ac31a8525976edbee8d041323fa84c1b53204b",
+                "reference": "55ac31a8525976edbee8d041323fa84c1b53204b",
                 "shasum": ""
             },
             "type": "library",
@@ -132,7 +132,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2015-03-09 00:27:22"
+            "time": "2015-03-09 02:41:13"
         },
         {
             "name": "justintadlock/hybrid-core",
