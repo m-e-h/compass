@@ -16,9 +16,10 @@ window.compass = window.compass || {};
 
 		//* Global script initialization
 		globalInit: function() {
-			$( document ).compassSkipLinks();
+			var $videos = $( '#site-inner' );
+
 			$( document ).gamajoAccessibleMenu();
-			$( '#site-inner' ).fitVids();
+			$videos.fitVids();
 		},
 
 		mobileMenu: function() {
