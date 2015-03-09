@@ -8,9 +8,10 @@ window.compass = window.compass || {};
 (function( window, $, undefined ) {
 	'use strict';
 
-	var $window = $( window ),
-		$body   = $( 'body' ),
-		compass = window.compass;
+	var $window   = $( window ),
+		$document = $( document ),
+		$body     = $( 'body' ),
+		compass   = window.compass;
 
 	$.extend( compass, {
 
@@ -18,7 +19,7 @@ window.compass = window.compass || {};
 		globalInit: function() {
 			var $videos = $( '#site-inner' );
 			$body.addClass( 'ontouchstart' in window || 'onmsgesturechange' in window ? 'touch' : 'no-touch' );
-			$( document ).gamajoAccessibleMenu();
+			$document.gamajoAccessibleMenu();
 			$videos.fitVids();
 		},
 
@@ -26,23 +27,80 @@ window.compass = window.compass || {};
 			var menuSelectors = [],
 				menuSide      = $body.hasClass( 'rtl' ) ? 'left' : 'right',
 				name          = 'sidr-main',
+				sidrOpen      = null,
+				sidrClose     = null,
+				siteContainer = $( '#site-container' ),
 				menuButton    = $( '<button type="button" id="responsive-menu-button" class="menu-button" aria-expanded="false"></button>' );
 
-			if ( $( '#menu-primary' ).length ) {
+			if ( 0 !== $( '#menu-primary' ).length ) {
 				menuSelectors.push( '#menu-primary' );
 			}
 
-			if ( $( '#menu-secondary' ).length ) {
+			if ( 0 !== $( '#menu-secondary' ).length ) {
 				menuSelectors.push( '#menu-secondary' );
 			}
 
 			//* End here if we don't have a menu.
-			if ( menuSelectors.length === 0 ) {
+			if ( 0 === menuSelectors.length ) {
 				return;
 			}
 
 			//* Add a responsive menu button.
 			$( '#branding' ).before( menuButton );
+
+			sidrOpen = function() {
+				var navEl        = $( '#' + name ),
+					navItems     = $( '#' + name + ' a' ),
+					firstNavItem = navItems.first(),
+					lastNavItem  = navItems.last();
+
+				menuButton.toggleClass( 'activated' ).attr( 'aria-expanded', true );
+
+				siteContainer.on( 'click.CloseSidr', function( event ) {
+					$.sidr( 'close', name );
+					event.preventDefault();
+				});
+
+				// Add some attributes to the menu container.
+				navEl.attr({ role: 'navigation', tabindex: '0' }).focus();
+
+				// When focus is on the menu container.
+				navEl.on( 'keydown.sidrNav', function( event ) {
+					// If it's not the tab key then return.
+					if ( 9 !== event.keyCode ) {
+						return;
+					}
+					// When tabbing forwards and tabbing out of the last link.
+					if ( lastNavItem[0] === event.target && ! event.shiftKey ) {
+						menuButton.focus();
+						return false;
+					// When tabbing backwards and tabbing out of the first link OR the menu container.
+					} else if ( ( firstNavItem[0] === event.target || navEl[0] === event.target ) && event.shiftKey ) {
+						menuButton.focus();
+						return false;
+					}
+				});
+
+				// When focus is on the toggle button.
+				menuButton.on( 'keydown.sidrNav', function( event ) {
+					// If it's not the tab key then return.
+					if ( 9 !== event.keyCode ) {
+						return;
+					}
+					// when tabbing forwards
+					if ( menuButton[0] === event.target && ! event.shiftKey ) {
+						navEl.focus();
+						return false;
+					}
+				});
+			};
+
+			sidrClose = function() {
+				menuButton.toggleClass( 'activated' ).attr( 'aria-expanded', false );
+				siteContainer.off( 'click.CloseSidr' );
+				// Remove the toggle button keydown event.
+				menuButton.off( 'keydown.sidrNav' );
+			};
 
 			//* Sidr menu init.
 			menuButton.sidr( {
@@ -50,55 +108,8 @@ window.compass = window.compass || {};
 				renaming: false,
 				side:     menuSide,
 				source:   menuSelectors.toString(),
-				onOpen: function() {
-					var navEl        = $( '#' + name ),
-						navItems     = $( '#' + name + ' a' ),
-						firstNavItem = navItems.first(),
-						lastNavItem  = navItems.last();
-
-					menuButton.toggleClass( 'activated' ).attr( 'aria-expanded', true );
-					$( '.site-container' ).on( 'click.CloseSidr', function( event ) {
-						$.sidr( 'close', name );
-						event.preventDefault();
-					});
-					// Add some attributes to the menu container.
-					navEl.attr({ role: 'navigation', tabindex: '0' }).focus();
-					// When focus is on the menu container.
-					navEl.on( 'keydown.sidrNav', function( event ) {
-						// If it's not the tab key then return.
-						if ( 9 !== event.keyCode ) {
-							return;
-						}
-						// When tabbing forwards and tabbing out of the last link.
-						if ( lastNavItem[0] === event.target && ! event.shiftKey ) {
-							menuButton.focus();
-							return false;
-						// When tabbing backwards and tabbing out of the first link OR the menu container.
-						} else if ( ( firstNavItem[0] === event.target || navEl[0] === event.target ) && event.shiftKey ) {
-							menuButton.focus();
-							return false;
-						}
-					});
-					// When focus is on the toggle button.
-					menuButton.on( 'keydown.sidrNav', function( event ) {
-						// If it's not the tab key then return.
-						if ( 9 !== event.keyCode ) {
-							return;
-						}
-						// when tabbing forwards
-						if ( menuButton[0] === event.target && ! event.shiftKey ) {
-							navEl.focus();
-							return false;
-						}
-					});
-				},
-				onClose: function() {
-					menuButton.toggleClass( 'activated' ).attr( 'aria-expanded', false );
-					$( '.site-container' ).off( 'click.CloseSidr' );
-					// Remove the toggle button keydown event.
-					menuButton.off( 'keydown.sidrNav' );
-				}
-
+				onOpen:   sidrOpen,
+				onClose:  sidrClose
 			});
 
 			//* Close sidr menu if open on larger screens
