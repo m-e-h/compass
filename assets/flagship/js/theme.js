@@ -17,7 +17,7 @@ window.compass = window.compass || {};
 		//* Global script initialization
 		globalInit: function() {
 			var $videos = $( '#site-inner' );
-
+			$body.addClass( 'ontouchstart' in window || 'onmsgesturechange' in window ? 'touch' : 'no-touch' );
 			$( document ).gamajoAccessibleMenu();
 			$videos.fitVids();
 		},
