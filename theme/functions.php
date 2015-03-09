@@ -26,9 +26,6 @@ add_action( 'after_setup_theme', 'compass_setup', 10 );
  * @return  void
  */
 function compass_setup() {
-	// https://codex.wordpress.org/Title_Tag
-	add_theme_support( 'title-tag' );
-
 	// http://themehybrid.com/docs/theme-layouts
 	add_theme_support(
 		'theme-layouts',
@@ -71,9 +68,6 @@ function compass_setup() {
 
 	// http://codex.wordpress.org/Post_Formats
 	add_theme_support( 'post-formats', $formats );
-
-	// http://codex.wordpress.org/Post_Thumbnails
-	add_theme_support( 'post-thumbnails' );
 
 	// https://github.com/justintadlock/breadcrumb-trail
 	add_theme_support( 'breadcrumb-trail' );
