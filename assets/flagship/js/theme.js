@@ -27,12 +27,12 @@ window.compass = window.compass || {};
 				name          = 'sidr-main',
 				menuButton    = $( '<button type="button" id="responsive-menu-button" class="menu-button" aria-expanded="false"></button>' );
 
-			if ( $( '#menu-header' ).length ) {
-				menuSelectors.push( '#menu-header' );
-			}
-
 			if ( $( '#menu-primary' ).length ) {
 				menuSelectors.push( '#menu-primary' );
+			}
+
+			if ( $( '#menu-secondary' ).length ) {
+				menuSelectors.push( '#menu-secondary' );
 			}
 
 			//* End here if we don't have a menu.
