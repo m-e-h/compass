@@ -24,8 +24,8 @@
     "vendor-dir": "assets/composer"
   },
   "require": {
-    "justintadlock/hybrid-core": "~2.0",
-    "flagshipwp/flagship-library": "~1.3",
+    "justintadlock/hybrid-core": "dev-dev",
+    "flagshipwp/flagship-library": "dev-develop",
     "zamoose/themehookalliance": "dev-master",
     "composer/installers": "~1.0"
   }

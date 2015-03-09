@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a700ea812344a41289a19385b5699fa3",
+    "hash": "4eb93d4f452dd049827cfb5be4b4a59a",
     "packages": [
         {
             "name": "composer/installers",
@@ -103,16 +103,16 @@
         },
         {
             "name": "flagshipwp/flagship-library",
-            "version": "1.3.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FlagshipWP/flagship-library.git",
-                "reference": "794b31643ecc581d4a3111fa6c9576d426db807e"
+                "reference": "b6dde9b15029140dd4787a49628bd2ad210eda64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FlagshipWP/flagship-library/zipball/794b31643ecc581d4a3111fa6c9576d426db807e",
-                "reference": "794b31643ecc581d4a3111fa6c9576d426db807e",
+                "url": "https://api.github.com/repos/FlagshipWP/flagship-library/zipball/b6dde9b15029140dd4787a49628bd2ad210eda64",
+                "reference": "b6dde9b15029140dd4787a49628bd2ad210eda64",
                 "shasum": ""
             },
             "type": "library",
@@ -132,20 +132,20 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2015-02-23 18:53:15"
+            "time": "2015-03-09 00:27:22"
         },
         {
             "name": "justintadlock/hybrid-core",
-            "version": "2.0.4",
+            "version": "dev-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justintadlock/hybrid-core.git",
-                "reference": "214ac1aaa47779513710ae56f56cb3e4d5de0907"
+                "reference": "ece3f9e28302becfa6d6d77fccbb4b1a6d3ad3f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justintadlock/hybrid-core/zipball/214ac1aaa47779513710ae56f56cb3e4d5de0907",
-                "reference": "214ac1aaa47779513710ae56f56cb3e4d5de0907",
+                "url": "https://api.github.com/repos/justintadlock/hybrid-core/zipball/ece3f9e28302becfa6d6d77fccbb4b1a6d3ad3f8",
+                "reference": "ece3f9e28302becfa6d6d77fccbb4b1a6d3ad3f8",
                 "shasum": ""
             },
             "type": "library",
@@ -170,7 +170,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2014-12-12 17:07:10"
+            "time": "2015-02-25 23:36:43"
         },
         {
             "name": "zamoose/themehookalliance",
@@ -209,6 +209,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "justintadlock/hybrid-core": 20,
+        "flagshipwp/flagship-library": 20,
         "zamoose/themehookalliance": 20
     },
     "prefer-stable": false,
