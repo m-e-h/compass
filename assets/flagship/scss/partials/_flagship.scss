@@ -40,10 +40,15 @@
 	margin: 0.205em 0.153em 0 0;
 }
 
-.pullquote {
-
+.pull-quote {
+	&.alignright {
+		border-left: 0;
+		border-right: 7px solid $blockquote-border-color;
+	}
 }
 
-.intro-paragrah {
-
+.intro-pagragraph {
+	border-bottom: 1px solid $intro-paragraph-border-color;
+	border-top: 1px solid $intro-paragraph-border-color;
+	padding: 20px 0;
 }
