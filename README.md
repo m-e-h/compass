@@ -6,7 +6,7 @@ The most advanced WordPress Starter theme ever created.
 
 __Contributors:__ [Robert Neu](https://github.com/robneu), [Gary Jones](https://github.com/GaryJones)  
 __Requires:__ WordPress 4.0  
-__Tested up to:__ WordPress 4.0  
+__Tested up to:__ WordPress 4.1.1  
 __License:__ [GPL-2.0+](http://www.gnu.org/licenses/gpl-2.0.html)  
 
 Compass will revolutionize your theme development workflow by removing all the guesswork and letting you focus on the fun stuff. Built using the latest and greatest web development tools like Grunt, Sass, Bourbon, and Hybrid Core.
@@ -24,27 +24,26 @@ Compass is designed to be a boilerplate for your own custom WordPress themes. Fo
     │       ├── images
     │       ├── js
     │       └── scss
-    ├── dist (added by package task)
-    ├── grunt
+    ├── comment
+    ├── config
     │   ├── config
     │   └── tasks
-    ├── logs (added by build/check tasks)
-    ├── theme
-    │   ├── comment
-    │   ├── content
-    │   │   ├── archive
-    │   │   └── singular
-    │   ├── css (added by build task)
-    │   ├── font (added by build task)
-    │   ├── hybrid-core (pulled in as dependency)
-    │   ├── includes
-    │   │   └── vendor (added by build task)
-    │   │       └── flagship-library (pulled in as dependency)
-    │   ├── js (added by build task)
-    │   ├── languages (added by build task)
-    │   ├── menu
-    │   ├── misc-templates
-    │   └── sidebar
+    ├── content
+    │   ├── archive
+    │   └── singular
+    ├── css (added by build task)
+    ├── dist (added by package task)
+    ├── font (added by build task)
+    ├── hybrid-core (pulled in as dependency)
+    ├── images (added by build task)
+    ├── includes
+    │   └── vendor (added by build task)
+    │       └── flagship-library (pulled in as dependency)
+    ├── js (added by build task)
+    ├── languages (added by build task)
+    ├── logs (added by build task)
+    ├── menu
+    ├── sidebar
     └── tmp (added by build task)
 
 ## Contributing
