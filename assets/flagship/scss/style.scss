@@ -23,6 +23,8 @@
 		- Avatar
 		- WordPress
 		- Screen Readers
+	- Flagship Styles
+		- Author Boxes
 	- Genericons
 		- Theme Icons
 	- Header
@@ -72,7 +74,6 @@
 HTML5 Reset
 ----------------------------------------------------------------------------- */
 @import "../../bower/wp-normalize/wp-normalize";
-@import "partials/reset";
 
 
 /*
@@ -91,6 +92,12 @@ Structure and Layout
 Common Classes
 ----------------------------------------------------------------------------- */
 @import "partials/common-classes";
+
+
+/*
+Flagship Styles
+----------------------------------------------------------------------------- */
+@import "partials/flagship";
 
 
 /*

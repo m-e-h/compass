@@ -1,4 +1,4 @@
-/* Flagship
+/* Hybrid Core
 --------------------------------------------- */
 
 .breadcrumbs {
@@ -10,39 +10,12 @@
 	}
 }
 
-.loop-meta,
-.author-box {
+.loop-meta {
 	margin-bottom: 30px;
-}
 
-.author-box {
-	background: $author-box-background-color;
-	border: 1px solid $author-box-border-color;
-	padding: 20px;
-
-	@include media($small-screen-up) {
-		padding: 40px;
+	p:last-child {
+		margin-bottom: 0;
 	}
-
-	.social-icons {
-		display: block;
-		padding-top: 26px;
-
-		li {
-			display: inline-block;
-			margin: 0 5px 5px;
-		}
-	}
-
-}
-
-.author-box-title {
-	margin-bottom: 4px;
-}
-
-.loop-meta p:last-child,
-.author-box p:last-child {
-	margin-bottom: 0;
 }
 
 .loop-title {
