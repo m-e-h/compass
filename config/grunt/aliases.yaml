@@ -70,8 +70,6 @@ check:
   - 'jsonlint'
   - 'jsvalidate'
   - 'jscs'
-  - 'phplint'
-  - 'phpcs'
   - 'checktextdomain'
   - 'complexity'
 # Pre-commit hook task
@@ -92,7 +90,3 @@ package:
 'package:dev':
   - build
   - 'compress:dev'
-reports:
-  - 'phpcs'
-  - 'phpmd'
-  - 'phpcpd'

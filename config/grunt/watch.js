@@ -13,15 +13,6 @@ module.exports = {
 			'jscs:grunt'
 		]
 	},
-	php: {
-		files: [
-			'<%= files.php %>'
-		],
-		tasks: [
-			'phplint',
-			'phpcs'
-		]
-	},
 	js: {
 		files: [
 			'<%= files.js %>'
