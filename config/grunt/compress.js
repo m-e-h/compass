@@ -55,7 +55,7 @@ module.exports = {
 					'!*.sublime*',
 					'!.DS_Store'
 				], // Take this...
-				dest: '<%= pkg.name %>-project' // ...put it into this, then zip that up as ^^^
+				dest: '<%= pkg.name %>' // ...put it into this, then zip that up as ^^^
 			}
 		]
 	}
