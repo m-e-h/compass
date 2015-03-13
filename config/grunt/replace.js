@@ -13,9 +13,7 @@ module.exports = {
 		files: [{
 			expand: true,
 			src: [
-				'<%= paths.tmp %>style.min.css',
-				'<%= paths.tmp %>style-rtl.min.css',
-				'<%= paths.tmp %>editor-style.min.css'
+				'<%= paths.tmp %>style*.min.css'
 			]
 		}]
 	},
