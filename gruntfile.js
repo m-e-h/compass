@@ -8,57 +8,35 @@ module.exports = function( grunt ) {
 	// Define project configuration
 	var project = {
 		paths: {
-			get authorAssets() {
-				return this.assets + 'flagship/';
-			},
-			get bower() {
-				return this.assets + 'bower/';
-			},
-			get composer() {
-				return this.assets + 'composer/';
-			},
-			get config() {
-				return this.grunt + 'config/';
-			},
-			get hybridCore() {
-				return this.theme + 'hybrid-core/';
-			},
-			get tasks() {
-				return this.grunt + 'tasks/';
-			},
-			assets:    'assets/',
-			dist:      'dist/',
-			docs:      'docs/',
-			grunt:     'grunt/',
-			languages: 'languages/',
-			logs:      'logs/',
-			theme:     'theme/',
-			tmp:       'tmp/'
-		},
-		files: {
-			get php() {
-				return project.paths.theme + '**/*.php';
-			},
-			get js() {
-				return project.paths.assets + '{,*/}js/*.js';
-			},
-			get scss() {
-				return project.paths.authorAssets + 'scss/**/*.scss';
-			},
-			get config() {
-				return project.paths.config + '*.js';
-			},
-			get changelog() {
-				return project.paths.theme + 'CHANGELOG.md';
-			},
-			grunt: 'Gruntfile.js'
+			theme:        'theme/',
+			config:       'config/',
+			assets:       'assets/',
+			dist:         'dist/',
+			docs:         'docs/',
+			languages:    'languages/',
+			logs:         'logs/',
+			tmp:          'tmp/',
+			authorAssets: 'assets/flagship/',
+			bower:        'assets/bower/',
+			composer:     'assets/composer/',
+			grunt:        'config/grunt/',
+			hybridCore:   'theme/hybrid-core/',
+			tasks:        'config/grunt/tasks/'
 		},
 		pkg: grunt.file.readJSON( 'package.json' )
 	};
 
+	project.files = {
+		php:       project.paths.theme        + '**/*.php',
+		js:        project.paths.assets       + '{,*/}js/*.js',
+		scss:      project.paths.authorAssets + 'scss/**/*.scss',
+		config:    project.paths.config       + '**/*.js',
+		changelog: project.paths.theme        + 'CHANGELOG.md'
+	};
+
 	// Load Grunt plugin configurations
 	require( 'load-grunt-config' )(grunt, {
-		configPath: require( 'path' ).join( process.cwd(), project.paths.config ),
+		configPath: require( 'path' ).join( process.cwd(), project.paths.grunt ),
 		data: project,
 		jitGrunt: {
 			staticMappings: {
