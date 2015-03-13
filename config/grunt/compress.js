@@ -7,8 +7,32 @@ module.exports = {
 		files: [
 			{
 				expand: true,
-				cwd: '<%= paths.theme %>',
-				src: ['**/*'], // Take this...
+				src: [
+					'**',
+					'.*',
+					'!.git/**',
+					'!.sass-cache/**',
+					'!assets/**',
+					'!config/**',
+					'!dist/**',
+					'!logs/**',
+					'!node_modules/**',
+					'!tmp/**',
+					'!*.sublime*',
+					'!.DS_Store',
+					'!.gitattributes',
+					'!.gruntjshintrc',
+					'!.gitignore',
+					'!.jscsrc',
+					'!.jshintrc',
+					'!.scss-lint.yml',
+					'!bower.json',
+					'!composer.json',
+					'!composer.lock',
+					'!gruntfile.js',
+					'!package.json',
+					'!phpmd.xml'
+				], // Take this...
 				dest: '<%= pkg.name %>' // ...put it into this, then zip that up as ^^^
 			}
 		]

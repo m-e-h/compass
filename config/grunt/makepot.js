@@ -2,7 +2,6 @@
 module.exports = {
 	theme: {
 		options: {
-			cwd: '<%= paths.theme %>',
 			domainPath: '<%= paths.languages %>',
 			potHeaders: {
 				poedit: true,

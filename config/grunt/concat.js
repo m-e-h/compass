@@ -8,6 +8,6 @@ module.exports = {
 			'<%= paths.authorAssets %>js/skip-links.js',
 			'<%= paths.authorAssets %>js/theme.js'
 		],
-		dest: '<%= paths.theme %>js/theme.js'
+		dest: 'js/theme.js'
 	}
 };

@@ -56,7 +56,7 @@ module.exports = {
 			{
 				expand: true,
 				src: [
-					'<%= paths.theme %>**/*'
+					'**/*'
 				]
 			}
 		]

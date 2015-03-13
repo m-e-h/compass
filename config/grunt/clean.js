@@ -12,7 +12,7 @@ module.exports = {
 	},
 	css: {
 		src: [
-			'<%= paths.theme %>css'
+			'css'
 		]
 	},
 	dist: {
@@ -27,7 +27,7 @@ module.exports = {
 	},
 	font: {
 		src: [
-			'<%= paths.theme %>font'
+			'font'
 		]
 	},
 	hybridcore: {
@@ -37,12 +37,12 @@ module.exports = {
 	},
 	flagshiplibrary: {
 		src: [
-			'<%= paths.theme %>includes/vendor/flagship-library'
+			'includes/vendor/flagship-library'
 		]
 	},
 	themehookalliance: {
 		src: [
-			'<%= paths.theme %>includes/vendor/tha-theme-hooks.php'
+			'includes/vendor/tha-theme-hooks.php'
 		]
 	},
 	logs: {
@@ -57,28 +57,28 @@ module.exports = {
 	},
 	js: {
 		src: [
-			'<%= paths.theme %>js'
+			'js'
 		]
 	},
 	images: {
 		src: [
-			'<%= paths.theme %>images'
+			'images'
 		]
 	},
 	languages: {
 		src: [
-			'<%= paths.theme %>languages'
+			'languages'
 		]
 	},
 	style: {
 		src: [
-			'<%= paths.theme %>style*.*',
+			'style*.*',
 			'<%= paths.tmp %>style*.*'
 		]
 	},
 	screenshot: {
 		src: [
-			'<%= paths.theme %>screenshot.png'
+			'screenshot.png'
 		]
 	}
 

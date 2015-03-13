@@ -8,7 +8,6 @@ module.exports = function( grunt ) {
 	// Define project configuration
 	var project = {
 		paths: {
-			theme:        'theme/',
 			config:       'config/',
 			assets:       'assets/',
 			dist:         'dist/',
@@ -20,18 +19,33 @@ module.exports = function( grunt ) {
 			bower:        'assets/bower/',
 			composer:     'assets/composer/',
 			grunt:        'config/grunt/',
-			hybridCore:   'theme/hybrid-core/',
+			hybridCore:   'hybrid-core/',
 			tasks:        'config/grunt/tasks/'
 		},
 		pkg: grunt.file.readJSON( 'package.json' )
 	};
 
 	project.files = {
-		php:       project.paths.theme        + '**/*.php',
-		js:        project.paths.assets       + '{,*/}js/*.js',
-		scss:      project.paths.authorAssets + 'scss/**/*.scss',
-		config:    project.paths.config       + '**/*.js',
-		changelog: project.paths.theme        + 'CHANGELOG.md'
+		js:     project.paths.assets       + '{,*/}js/*.js',
+		scss:   project.paths.authorAssets + 'scss/**/*.scss',
+		config: project.paths.config       + '**/*.js',
+		php: [
+			'*.php',
+			'**/*.php',
+			'!.git/**/*',
+			'!.sass-cache/**/*',
+			'!assets/**/*',
+			'!css/**/*',
+			'!dist/**/*',
+			'!font/**/*',
+			'!images/**/*',
+			'!js/**/*',
+			'!languages/**/*',
+			'!logs/**/*',
+			'!node_modules/**/*',
+			'!tmp/**/*'
+		],
+		changelog: 'CHANGELOG.md'
 	};
 
 	// Load Grunt plugin configurations

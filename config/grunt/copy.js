@@ -7,7 +7,7 @@ module.exports = {
 				expand: true,
 				flatten: true,
 				src: ['style*.css', 'style*.map'],
-				dest: '<%= paths.theme %>',
+				dest: '',
 				filter: 'isFile'
 			}
 		]
@@ -20,7 +20,7 @@ module.exports = {
 				src: [
 					'<%= paths.bower %>genericons/genericons.css'
 				],
-				dest: '<%= paths.theme %>css/',
+				dest: 'css/',
 				filter: 'isFile'
 			}
 		]
@@ -32,7 +32,7 @@ module.exports = {
 				expand: true,
 				flatten: true,
 				src: ['editor-style*.css', 'editor-style*.map'],
-				dest: '<%= paths.theme %>css/',
+				dest: 'css/',
 				filter: 'isFile'
 			}
 		]
@@ -48,7 +48,7 @@ module.exports = {
 					'<%= paths.bower %>genericons/Genericons.ttf',
 					'<%= paths.bower %>genericons/Genericons.woff'
 				],
-				dest: '<%= paths.theme %>font/'
+				dest: 'font/'
 			}
 		]
 	},
@@ -68,7 +68,7 @@ module.exports = {
 				cwd: '<%= paths.composer %>flagshipwp/flagship-library',
 				expand: true,
 				src: ['**/*'],
-				dest: '<%= paths.theme %>includes/vendor/flagship-library'
+				dest: 'includes/vendor/flagship-library'
 			}
 		]
 	},
@@ -78,7 +78,7 @@ module.exports = {
 				cwd: '<%= paths.composer %>zamoose/themehookalliance',
 				expand: true,
 				src: ['tha-theme-hooks.php'],
-				dest: '<%= paths.theme %>includes/vendor/'
+				dest: 'includes/vendor/'
 			}
 		]
 	},
@@ -89,7 +89,7 @@ module.exports = {
 				expand: true,
 				flatten: true,
 				src: ['*', '!screenshot.png'],
-				dest: '<%= paths.theme %>images',
+				dest: 'images',
 				filter: 'isFile'
 			}
 		]
@@ -101,7 +101,7 @@ module.exports = {
 				expand: true,
 				flatten: true,
 				src: ['screenshot.png'],
-				dest: '<%= paths.theme %>',
+				dest: '',
 				filter: 'isFile'
 			}
 		]

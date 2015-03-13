@@ -16,11 +16,11 @@ module.exports = {
 	},
 	vendor: {
 		expand: true,
-		cwd: '<%= paths.theme %>css/',
+		cwd: 'css/',
 		src: [
 			'*.css'
 		],
-		dest: '<%= paths.theme %>css/',
+		dest: 'css/',
 		ext: '.min.css'
 	}
 };
