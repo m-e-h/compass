@@ -45,12 +45,13 @@
     "url": "https://github.com/FlagshipWP/compass.git"
   },
   "devDependencies": {
-    "load-flagship-grunt-config": "git://github.com/FlagshipWP/load-flagship-grunt-config.git#develop",
     "flagship-wp-theme-config": "git://github.com/FlagshipWP/flagship-wp-theme-config.git#develop",
     "grunt-bowercopy": "^1.2.0",
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-copy": "^0.8.0",
     "grunt-contrib-rename": "0.0.3",
-    "grunt-replace": "^0.8.0"
+    "grunt-replace": "^0.8.0",
+    "grunt-webfont": "^0.5.2",
+    "load-flagship-grunt-config": "git://github.com/FlagshipWP/load-flagship-grunt-config.git#develop"
   }
 }
