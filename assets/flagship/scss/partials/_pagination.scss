@@ -20,12 +20,17 @@
 		background: $pagination-current-background-color;
 	}
 
+	.next:before,
+	.prev:before {
+		font-family: "flagicons";
+	}
+
 	.next:before {
-		content: "\2192";
+		content: $fli-arrow-right;
 	}
 
 	.prev:before {
-		content: "\2190";
+		content: $fli-arrow-left;
 	}
 
 	a {
@@ -41,11 +46,11 @@
 
 .rtl {
 	.pagination .next:before {
-		content: "\2190";
+		content: $fli-arrow-left;
 	}
 
 	.pagination .prev:before {
-		content: "\2192";
+		content: $fli-arrow-right;
 	}
 }
 
@@ -85,7 +90,6 @@
 
 /* Page Links
 --------------------------------------------- */
-
 .nav-next a {
 
 	@include media($medium-screen-up) {
@@ -93,7 +97,8 @@
 	}
 
 	&:after {
-		content: "\2192";
+		font-family: "flagicons";
+		content: $fli-arrow-right;
 		padding-left: 10px;
 	}
 }
@@ -105,7 +110,8 @@
 	}
 
 	&:before {
-		content: "\2190";
+		font-family: "flagicons";
+		content: $fli-arrow-left;
 		padding-right: 10px;
 	}
 }
