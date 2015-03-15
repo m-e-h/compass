@@ -2,9 +2,13 @@
 module.exports = {
 	options: {
 		stylesheet: 'scss',
-		relativeFontPath: '..font/',
-		htmlDemo: false,
+		relativeFontPath: 'fonts/',
+		hashes: false,
+		htmlDemo: false, // Enable for testing.
+		embed: true,
 		font: 'flagicons',
+		types: 'eot,woff,ttf,svg',
+		engine: 'node',
 		templateOptions: {
 			baseClass: 'fli',
 			classPrefix: 'fli-',
@@ -13,10 +17,9 @@ module.exports = {
 	},
 	icons: {
 		src: [
-			'<%= paths.bower %>iconic/svg/*',
-			'<%= paths.authorAssets %>icons/*.svg'
+			'<%= paths.tmp %>icons/**/*.svg'
 		],
 		dest: 'font/',
-		destCss: '<%= paths.authorAssets %>scss/partials'
+		destCss: '<%= paths.authorAssets %>scss/generated'
 	}
 };
