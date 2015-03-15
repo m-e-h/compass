@@ -6,7 +6,10 @@ module.exports = {
 				cwd: '<%= paths.tmp %>',
 				expand: true,
 				flatten: true,
-				src: ['style*.css', 'style*.map'],
+				src: [
+					'style*.css',
+					'style*.map'
+				],
 				dest: '',
 				filter: 'isFile'
 			}
@@ -17,9 +20,7 @@ module.exports = {
 			{
 				expand: true,
 				flatten: true,
-				src: [
-					'<%= paths.bower %>genericons/genericons.css'
-				],
+				src: [],
 				dest: 'css/',
 				filter: 'isFile'
 			}
@@ -31,24 +32,24 @@ module.exports = {
 				cwd: '<%= paths.tmp %>',
 				expand: true,
 				flatten: true,
-				src: ['editor-style*.css', 'editor-style*.map'],
+				src: [
+					'editor-style*.css',
+					'editor-style*.map'
+				],
 				dest: 'css/',
 				filter: 'isFile'
 			}
 		]
 	},
-	font: {
+	fonts: {
 		files: [
 			{
 				expand: true,
 				flatten: true,
 				src: [
-					'<%= paths.bower %>genericons/Genericons.eot',
-					'<%= paths.bower %>genericons/Genericons.svg',
-					'<%= paths.bower %>genericons/Genericons.ttf',
-					'<%= paths.bower %>genericons/Genericons.woff'
+					'<%= paths.authorAssets %>fonts/**/*'
 				],
-				dest: 'font/'
+				dest: 'fonts/'
 			}
 		]
 	},

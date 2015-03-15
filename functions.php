@@ -45,7 +45,7 @@ function compass_setup() {
 	add_theme_support( 'automatic-feed-links' );
 
 	// http://themehybrid.com/docs/hybrid-core-styles
-	add_theme_support( 'hybrid-core-styles', array( 'style', 'google-fonts', 'genericons', ) );
+	add_theme_support( 'hybrid-core-styles', array( 'style', 'google-fonts', ) );
 
 	// https://github.com/FlagshipWP/flagship-library/wiki/Flagship-Site-Logo
 	add_theme_support( 'site-logo' );

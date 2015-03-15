@@ -25,8 +25,8 @@
 		- Screen Readers
 	- Flagship Styles
 		- Author Boxes
-	- Genericons
-		- Theme Icons
+	- Flagicons
+	- Theme Icons
 	- Header
 		- Title Area
 		- Widget Area
@@ -101,9 +101,15 @@ Flagship Styles
 
 
 /*
-Genericons
+Flagicons
 ----------------------------------------------------------------------------- */
-@import "partials/genericons";
+@import "generated/flagicons";
+
+
+/*
+Theme Icons
+----------------------------------------------------------------------------- */
+@import "partials/theme-icons";
 
 
 /*

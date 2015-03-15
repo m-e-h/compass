@@ -23,7 +23,6 @@ function compass_add_editor_styles() {
 	// Set up editor styles
 	$editor_styles = array(
 		'//fonts.googleapis.com/css?family=Raleway:400,600|Lato:400,400italic,700',
-		'css/genericons.css',
 		'css/editor-style.css',
 	);
 
@@ -69,12 +68,6 @@ function compass_enqueue_styles() {
 		'//fonts.googleapis.com/css?family=Raleway:400,600|Lato:400,400italic,700',
 		array(),
 		null
-	);
-	wp_register_style(
-		'genericons',
-		$css_dir . "genericons{$suffix}.css",
-		array(),
-		'3.2'
 	);
 }
 

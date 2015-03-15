@@ -1,21 +1,15 @@
 // https://github.com/timmywil/grunt-bowercopy
 module.exports = {
 	options: {
+		destPrefix: '<%= paths.bower %>',
 		clean: true
 	},
 	css: {
-		options: {
-			destPrefix: '<%= paths.bower %>'
-		},
 		files: {
-			genericons: 'genericons/genericons',
 			'wp-normalize': 'wp-normalize.scss/_wp-normalize.scss'
 		}
 	},
 	js: {
-		options: {
-			destPrefix: '<%= paths.bower %>'
-		},
 		files: {
 			'fitvids/js': 'fitvids/jquery.fitvids.js',
 			'accessible-menu/js': 'accessible-menu/dist',
