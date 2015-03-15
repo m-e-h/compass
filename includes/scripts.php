@@ -60,9 +60,6 @@ add_action( 'wp_enqueue_scripts', 'compass_enqueue_styles', 4 );
  * @return void
  */
 function compass_enqueue_styles() {
-	$css_dir = trailingslashit( get_template_directory_uri() ) . 'css/';
-	$suffix  = hybrid_get_min_suffix();
-
 	wp_register_style(
 		'google-fonts',
 		'//fonts.googleapis.com/css?family=Raleway:400,600|Lato:400,400italic,700',
