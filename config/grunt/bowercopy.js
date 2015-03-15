@@ -9,6 +9,13 @@ module.exports = {
 			'wp-normalize': 'wp-normalize.scss/_wp-normalize.scss'
 		}
 	},
+	fonts: {
+		options: {
+			clean: false,
+			report: false
+		},
+		files: {}
+	},
 	js: {
 		files: {
 			'fitvids/js': 'fitvids/jquery.fitvids.js',
