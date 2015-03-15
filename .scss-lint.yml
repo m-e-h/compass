@@ -32,7 +32,7 @@ linters:
 
   SelectorFormat:
     exclude: # These files have underscore selectors because of WordPress or plugins.
-      - 'assets/flagship/scss/partials/_genericons.scss'
+      - 'assets/flagship/scss/partials/_theme-icons.scss'
       - 'assets/flagship/scss/partials/_plugins.scss'
       - 'assets/flagship/scss/partials/_jetpack.scss'
       - 'assets/flagship/scss/partials/_sidebars.scss'

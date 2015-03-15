@@ -9,6 +9,7 @@ module.exports = {
 		font: 'flagicons',
 		types: 'eot,woff,ttf,svg',
 		engine: 'node',
+		template: '<%= paths.authorAssets %>templates/webfont.css',
 		templateOptions: {
 			baseClass: 'fli',
 			classPrefix: 'fli-',
@@ -19,7 +20,7 @@ module.exports = {
 		src: [
 			'<%= paths.tmp %>icons/**/*.svg'
 		],
-		dest: 'font/',
+		dest: 'fonts/',
 		destCss: '<%= paths.authorAssets %>scss/generated'
 	}
 };
