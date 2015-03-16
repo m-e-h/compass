@@ -1,176 +1,129 @@
-/* Table of Contents
+/*------------------------------------*\
+    #Compass
+\*------------------------------------*/
 
-	- HTML5 Reset
-		- Baseline Normalize
-		- Box Sizing
-		- Float Clearing
-	- Defaults
-		- Typography
-		- Headings
-		- Media Objects
-		- Forms
-		- Tables
-		- Lists
-		- Buttons
-	- Structure and Layout
-		- Site Containers
-		- Column Widths and Positions
-		- Column Classes
-	- Common Classes
-		- Hybrid Core
-		- Search Form
-		- Post Password Form
-		- Avatar
-		- WordPress
-		- Screen Readers
-	- Flagship Styles
-		- Author Boxes
-	- Flagicons
-	- Theme Icons
-	- Header
-		- Title Area
-		- Widget Area
-	- Navigation
-		- Header Navigation
-		- After Header Navigation
-		- Mobile Menu
-		- Pagination
-	- Content Area
-		- Entries
-		- Entry Meta
-		- Featured Media
-	- Pagination
-		- Loop Pagination
-		- Single Post Pagination
-		- Page Links
-		- Loop Page Links
-		- Single Page Links
-	- Comments
-	- Widgets
-		- Featured Content
-	- Sidebars
-	- Footer Widgets
-	- Footer
-	- Plugins
-		- Gravity Forms
-		- Jetpack
-
-*/
-// Load Bourbon
-@import "bourbon";
-
-// Load Neat Grid
-@import "variables/neat-grid";
-@import "neat";
-
-// Load Global Variables
-@import "variables/colors";
-@import "variables/layout";
-@import "variables/misc";
-@import "variables/typography";
-@import "variables/z-index";
-
-/*
-HTML5 Reset
------------------------------------------------------------------------------ */
-@import "../../bower/wp-normalize/wp-normalize";
+/**
+ * CONTENTS
+ *
+ * SETTINGS
+ * Default..............inuitcss’ default settings.
+ * Global...............Globally-available variables and settings/config.
+ * Colors...............Manage our color palette in isolation.
+ *
+ * TOOLS
+ * Mixins...............inuitcss’ default mixins.
+ * Aliases..............Aliases onto longer inuitcss variables and mixins.
+ *
+ * GENERIC
+ * Normalize.css........A level playing field.
+ * Reset................A pared back reset to remove margins.
+ * Box-sizing...........Better default `box-sizing`.
+ * Shared...............Sensibly and tersely share global commonalities.
+ *
+ * ELEMENTS
+ * Page.................Page-level styles (HTML element).
+ * Headings.............Heading styles
+ * Type.................Misc type styles
+ * Links................Hyperlink styles
+ * Lists................inuitcss list styles
+ * Images...............inuitcss images
+ * Quotes...............Styling for blockquotes, etc.
+ *
+ * OBJECTS
+ * Wrappers.............Wrappers and page constraints.
+ * Layout...............inuitcss’ layout tool.
+ * Media................The media object.
+ *
+ * COMPONENTS
+ * Page-title............Page header styles.
+ * Promo................Lead promo blocks on the home page.
+ * Buttons..............Extension of inuitcss’ buttons.
+ * Avatars..............User profile pics.
+ *
+ * TRUMPS
+ * Links................Links, you know.
+ * Widths...............Simple width helper classes.
+ */
 
 
-/*
-Defaults
------------------------------------------------------------------------------ */
-@import "partials/defaults/base";
 
 
-/*
-Structure and Layout
------------------------------------------------------------------------------ */
-@import "partials/base-layout";
 
-/*
-Flagicons
------------------------------------------------------------------------------ */
-@import "generated/flagicons";
+/**
+ * #SETTINGS
+ */
+@import "settings.defaults";
+@import "settings.global";
+@import "settings.colors";
 
 
-/*
-Common Classes
------------------------------------------------------------------------------ */
-@import "partials/common-classes";
 
 
-/*
-Flagship Styles
------------------------------------------------------------------------------ */
-@import "partials/flagship";
+
+/**
+ * #TOOLS
+ */
+@import "tools.mixins";
+@import "tools.aliases";
 
 
-/*
-Theme Icons
------------------------------------------------------------------------------ */
-@import "partials/theme-icons";
 
 
-/*
-Site Header
------------------------------------------------------------------------------ */
-@import "partials/header";
+
+/**
+ * #GENERIC
+ */
+@import "generic.normalize";
+@import "generic.reset";
+@import "generic.box-sizing";
+@import "generic.shared";
 
 
-/*
-Site Navigation
------------------------------------------------------------------------------ */
-@import "partials/navigation";
 
 
-/*
-Content Area
------------------------------------------------------------------------------ */
-@import "partials/content-area";
+
+/**
+ * #ELEMENTS
+ */
+@import "elements.page";
+@import "elements.headings";
+@import "elements.links";
+@import "elements.lists";
+@import "elements.images";
+@import "elements.quotes";
 
 
-/*
-Pagination
------------------------------------------------------------------------------ */
-@import "partials/pagination";
 
 
-/*
-Comments
------------------------------------------------------------------------------ */
-@import "partials/comments";
+
+/**
+ * #OBJECTS
+ */
+@import "objects.wrappers";
+@import "objects.layout";
+@import "objects.media";
 
 
-/*
-Widgets
------------------------------------------------------------------------------ */
-@import "partials/widgets";
 
 
-/*
-Sidebars
------------------------------------------------------------------------------ */
-@import "partials/sidebars";
 
 
-/*
-Footer Widgets
------------------------------------------------------------------------------ */
-@import "partials/footer-widgets";
+/**
+ * #COMPONENTS
+ */
+@import "components.page-title";
+@import "components.buttons";
+@import "components.testimonials";
+@import "components.avatars";
+@import "components.site-nav";
 
 
-/*
-Site Footer
------------------------------------------------------------------------------ */
-@import "partials/footer";
 
 
-/*
-Plugins
------------------------------------------------------------------------------ */
-@import "partials/plugins";
 
-
-/* Jetpack
---------------------------------------------- */
-@import "partials/jetpack";
+/**
+ * #TRUMPS
+ */
+@import "trumps.links";
+@import "trumps.widths";
+@import "trumps.helpers";

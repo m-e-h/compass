@@ -27,9 +27,8 @@
 				'theme_location'  => 'primary',
 				'container'       => '',
 				'menu_id'         => 'primary',
-				'menu_class'      => 'nav-menu primary',
+				'menu_class'      => 'menu__list menu-primary__list',
 				'fallback_cb'     => '',
-				'items_wrap'      => '<div ' . hybrid_get_attr( 'wrap', 'primary-menu' ) . '><ul id="%s" class="%s">%s</ul></div>',
 			)
 		);
 		?>

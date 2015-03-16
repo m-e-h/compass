@@ -27,9 +27,8 @@
 				'theme_location'  => 'secondary',
 				'container'       => '',
 				'menu_id'         => 'secondary',
-				'menu_class'      => 'nav-menu secondary',
+				'menu_class'      => 'menu__list menu-secondary__list',
 				'fallback_cb'     => '',
-				'items_wrap'      => '<div ' . hybrid_get_attr( 'wrap', 'secondary-menu' ) . '><ul id="%s" class="%s">%s</ul></div>',
 			)
 		);
 		?>

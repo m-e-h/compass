@@ -15,17 +15,9 @@
 /tmp/
 
 # Third-party dependencies
-assets/bower/
 assets/composer/
 
 # Generated theme files
-/assets/flagship/scss/generated/
-/css/
-/fonts/
 /includes/vendor/
 /hybrid-core/
-/images/
-/js/
-/languages/
-/style*.*
-/screenshot.png
+*.map

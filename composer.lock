@@ -140,12 +140,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/justintadlock/hybrid-core.git",
-                "reference": "ece3f9e28302becfa6d6d77fccbb4b1a6d3ad3f8"
+                "reference": "e4daee4f5ae67a3199cf5d5aa20b3cbe5e8598e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justintadlock/hybrid-core/zipball/ece3f9e28302becfa6d6d77fccbb4b1a6d3ad3f8",
-                "reference": "ece3f9e28302becfa6d6d77fccbb4b1a6d3ad3f8",
+                "url": "https://api.github.com/repos/justintadlock/hybrid-core/zipball/e4daee4f5ae67a3199cf5d5aa20b3cbe5e8598e9",
+                "reference": "e4daee4f5ae67a3199cf5d5aa20b3cbe5e8598e9",
                 "shasum": ""
             },
             "type": "library",
@@ -170,7 +170,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2015-02-25 23:36:43"
+            "time": "2015-03-16 19:04:39"
         },
         {
             "name": "zamoose/themehookalliance",
