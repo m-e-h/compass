@@ -125,7 +125,7 @@ a[href^="tel:"]::before {
 }
 
 .entry-terms.category::before {
-	content: $fli-archive;
+	content: $fli-folder;
 }
 
 .entry-terms.portfolio::before {
@@ -276,7 +276,7 @@ a[href^="tel:"]::before {
 }
 
 .mejs-fullscreen-button button::after {
-	content: $fli-expand;
+	content: $fli-maximize;
 }
 
 .mejs-play button::after {
