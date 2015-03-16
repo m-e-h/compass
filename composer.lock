@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4eb93d4f452dd049827cfb5be4b4a59a",
+    "hash": "32506c480c62286dadb69ffab4b74e30",
     "packages": [
         {
             "name": "composer/installers",
@@ -103,16 +103,16 @@
         },
         {
             "name": "flagshipwp/flagship-library",
-            "version": "dev-develop",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FlagshipWP/flagship-library.git",
-                "reference": "55ac31a8525976edbee8d041323fa84c1b53204b"
+                "reference": "f4b805cd27b8c62f99c86c3671bab8fd0746d64a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FlagshipWP/flagship-library/zipball/55ac31a8525976edbee8d041323fa84c1b53204b",
-                "reference": "55ac31a8525976edbee8d041323fa84c1b53204b",
+                "url": "https://api.github.com/repos/FlagshipWP/flagship-library/zipball/f4b805cd27b8c62f99c86c3671bab8fd0746d64a",
+                "reference": "f4b805cd27b8c62f99c86c3671bab8fd0746d64a",
                 "shasum": ""
             },
             "type": "library",
@@ -132,7 +132,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2015-03-09 02:41:13"
+            "time": "2015-03-16 05:21:09"
         },
         {
             "name": "justintadlock/hybrid-core",
@@ -210,7 +210,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "justintadlock/hybrid-core": 20,
-        "flagshipwp/flagship-library": 20,
         "zamoose/themehookalliance": 20
     },
     "prefer-stable": false,
