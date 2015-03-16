@@ -21,9 +21,12 @@ Compass is designed to be a boilerplate for your own custom WordPress themes. Fo
     │   ├── bower (added by build task)
     │   ├── composer (added by build task)
     │   └── flagship
+    │       ├── fonts
+    │       ├── icons
     │       ├── images
     │       ├── js
-    │       └── scss
+    │       ├── scss
+    │       └── templates
     ├── comment
     ├── config
     │   ├── config
