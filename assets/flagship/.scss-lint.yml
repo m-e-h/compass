@@ -7,7 +7,7 @@ linters:
 
   IdSelector:
     exclude: # These files have ID selectors because of WordPress or plugins.
-      - 'assets/flagship/scss/partials/_jetpack.scss'
+      - 'scss/partials/_jetpack.scss'
 
   Indentation:
     character: tab
@@ -22,21 +22,21 @@ linters:
   QualifyingElement:
     allow_element_with_attribute: true
     exclude: # These files currently have qualifying elements
-      - 'assets/flagship/scss/partials/_common-classes.scss'
-      - 'assets/flagship/scss/partials/_plugins.scss'
-      - 'assets/flagship/scss/partials/_jetpack.scss'
-      - 'assets/flagship/scss/partials/_reset.scss'
+      - 'scss/partials/_common-classes.scss'
+      - 'scss/partials/_plugins.scss'
+      - 'scss/partials/_jetpack.scss'
+      - 'scss/partials/_reset.scss'
 
   SelectorDepth:
     enabled: false
 
   SelectorFormat:
     exclude: # These files have underscore selectors because of WordPress or plugins.
-      - 'assets/flagship/scss/partials/_theme-icons.scss'
-      - 'assets/flagship/scss/partials/_plugins.scss'
-      - 'assets/flagship/scss/partials/_jetpack.scss'
-      - 'assets/flagship/scss/partials/_sidebars.scss'
-      - 'assets/flagship/scss/partials/_widgets.scss'
+      - 'scss/partials/_theme-icons.scss'
+      - 'scss/partials/_plugins.scss'
+      - 'scss/partials/_jetpack.scss'
+      - 'scss/partials/_sidebars.scss'
+      - 'scss/partials/_widgets.scss'
 
   SingleLinePerProperty:
     allow_single_line_rule_sets: false
