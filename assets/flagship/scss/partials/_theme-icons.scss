@@ -105,7 +105,7 @@ a[href^="tel:"]::before {
 }
 
 .entry-published::before {
-	content: $fli-watch;
+	content: $fli-clock;
 }
 
 .entry-comments-link::before {
