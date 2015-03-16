@@ -103,16 +103,16 @@
         },
         {
             "name": "flagshipwp/flagship-library",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FlagshipWP/flagship-library.git",
-                "reference": "f4b805cd27b8c62f99c86c3671bab8fd0746d64a"
+                "reference": "feef3a5902e88b4e9f36f03190263a8c26523aae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FlagshipWP/flagship-library/zipball/f4b805cd27b8c62f99c86c3671bab8fd0746d64a",
-                "reference": "f4b805cd27b8c62f99c86c3671bab8fd0746d64a",
+                "url": "https://api.github.com/repos/FlagshipWP/flagship-library/zipball/feef3a5902e88b4e9f36f03190263a8c26523aae",
+                "reference": "feef3a5902e88b4e9f36f03190263a8c26523aae",
                 "shasum": ""
             },
             "type": "library",
@@ -132,7 +132,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2015-03-16 05:21:09"
+            "time": "2015-03-16 07:18:13"
         },
         {
             "name": "justintadlock/hybrid-core",
