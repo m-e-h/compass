@@ -78,6 +78,12 @@ function compass_setup() {
 	// http://themehybrid.com/docs/template-hierarchy
 	add_theme_support( 'hybrid-core-template-hierarchy' );
 
+	// Set up the WordPress core custom background feature.
+	add_theme_support( 'custom-background', apply_filters( 'compass_custom_background_args', array(
+		'default-color' => 'ffffff',
+		'default-image' => '',
+	) ) );
+
 	// https://github.com/FlagshipWP/flagship-library/wiki/Flagship-Author-Box
 	add_theme_support( 'flagship-author-box' );
 
@@ -113,3 +119,10 @@ function compass_includes() {
 
 // Add a hook for child themes to execute code.
 do_action( 'flagship_after_setup_parent' );
+
+
+add_action( 'after_setup_theme', 'remove_flagship_hierarchy' );
+
+function remove_flagship_hierarchy() {
+remove_filter( 'hybrid_content_template_hierarchy', 'flagship_content_template_hierarchy' );
+}

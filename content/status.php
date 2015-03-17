@@ -1,6 +1,6 @@
 <?php
 /**
- * A template part for displaying a status entry within an archive.
+ * A template part for displaying an entry in both single and archive posts.
  *
  * @package     Compass
  * @subpackage  HybridCore
@@ -14,6 +14,35 @@
 
 	<?php tha_entry_top(); ?>
 
+
+<?php if ( is_singular( get_post_type() ) ) : //single posts. ?>
+
+
+	<?php if ( get_option( 'show_avatars' ) ) : // If avatars are enabled. ?>
+
+		<header class="entry-header">
+			<?php echo get_avatar( get_the_author_meta( 'email' ) ); ?>
+		</header><!-- .entry-header -->
+
+	<?php endif; // End avatars check. ?>
+
+		<?php get_template_part( 'content/parts/single', 'content' ); ?>
+
+		<footer class="entry-footer">
+			<p class="entry-meta">
+				<?php hybrid_post_format_link(); ?>
+				<?php flagship_entry_author(); ?>
+				<?php flagship_entry_published(); ?>
+				<?php edit_post_link(); ?>
+				<?php hybrid_post_terms( array( 'taxonomy' => 'category', ) ); ?>
+				<?php hybrid_post_terms( array( 'taxonomy' => 'post_tag', ) ); ?>
+			</p>
+		</footer><!-- .entry-footer -->
+
+
+<?php else : // If not viewing a single post. ?>
+
+
 	<?php if ( get_option( 'show_avatars' ) ) : // If avatars are enabled. ?>
 
 		<header class="entry-header">
@@ -22,9 +51,7 @@
 
 	<?php endif; // End avatars check. ?>
 
-	<div <?php hybrid_attr( 'entry-content' ); ?>>
-		<?php the_content(); ?>
-	</div><!-- .entry-content -->
+		<?php get_template_part( 'content/parts/single', 'content' ); ?>
 
 	<?php if ( ! get_option( 'show_avatars' ) ) : // If avatars are not enabled. ?>
 
@@ -39,6 +66,10 @@
 		</footer><!-- .entry-footer -->
 
 	<?php endif; // End avatars check. ?>
+
+
+<?php endif; // End single post check. ?>
+
 
 	<?php tha_entry_bottom(); ?>
 

@@ -14,14 +14,9 @@
 
 	<?php tha_entry_top(); ?>
 
-	<header class="entry-header">
-		<h1 <?php hybrid_attr( 'entry-title' ); ?>><?php single_post_title(); ?></h1>
-	</header><!-- .entry-header -->
+	<?php get_template_part( 'content/parts/single', 'header' ); ?>
 
-	<div <?php hybrid_attr( 'entry-content' ); ?>>
-		<?php the_content(); ?>
-		<?php wp_link_pages(); ?>
-	</div><!-- .entry-content -->
+	<?php get_template_part( 'content/parts/single', 'content' ); ?>
 
 	<?php if ( current_user_can( 'edit_pages' ) ) : ?>
 		<footer class="entry-footer">
