@@ -39,7 +39,7 @@ function compass_excerpt_length( $length ) {
 	return 60;
 }
 
-add_action( 'tha_entry_top', 'compass_do_sticky_banner' );
+//add_action( 'tha_entry_top', 'compass_do_sticky_banner' );
 /**
  * Add markup for a sticky ribbon on sticky posts in archive views.
  *
