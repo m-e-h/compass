@@ -23,7 +23,7 @@ function compass_add_editor_styles() {
 	// Set up editor styles
 	$editor_styles = array(
 		'//fonts.googleapis.com/css?family=Raleway:400,600|Lato:400,400italic,700',
-		'css/editor-style.css',
+		'assets/css/editor-style.css',
 	);
 
 	// Add the editor styles.
