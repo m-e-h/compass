@@ -1,0 +1,3 @@
+@mixin font-size($inuit-font-size, $inuit-line-height: auto) {
+    @include inuit-font-size($inuit-font-size, $inuit-line-height: auto);
+}

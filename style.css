@@ -47,6 +47,11 @@
 /**
  * #SETTINGS
  */
+/*!
+ * inuitcss, by @csswizardry
+ *
+ * github.com/inuitcss | inuitcss.com
+ */
 /**
  * #TOOLS
  */
@@ -451,7 +456,6 @@ th {
     padding: 0;
 }
 
-body,
 h1,
 h2,
 h3,
@@ -466,28 +470,219 @@ dd,
 ol,
 ul,
 form,
-fieldset,
-legend,
 figure,
 table,
-th,
-td,
-caption,
-hr {
+caption {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0; 
+    border: 0;
+}
+
+/*! sanitize.css | CC0 Public Domain | github.com/jonathantneal/sanitize.css */
+/*
+ * Normalization
+ */
+:root {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+audio:not([controls]) {
+    display: none;
+}
+
+details {
+    display: block;
+}
+
+input[type="number"] {
+    width: auto;
+}
+input[type="search"] {
+    -webkit-appearance: textfield;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+main {
+    display: block;
+}
+
+summary {
+    display: block;
+}
+
+pre {
+    overflow: auto;
+}
+
+progress {
+    display: inline-block;
+}
+
+small {
+    font-size: 75%;
+}
+
+template {
+    display: none;
+}
+
+textarea {
+    overflow: auto;
+}
+
+[hidden] {
+    display: none;
+}
+
+[unselectable] {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/*
+ * Universal inheritance
+ */
+*,
+::after,
+::before {
+    box-sizing: inherit;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    vertical-align: inherit; 
+    text-decoration: inherit;
+}
+
+/*
+ * Opinionated defaults
+ */
+*,
+*::before,
+*::after {
+    border-width: 0; 
+    border-style: solid;
+}
+
+* {
     margin: 0;
     padding: 0;
 }
 
-html {
+:root {
     box-sizing: border-box;
+    font-family: sans-serif;
+    line-height: 1.5em;
+    vertical-align: top; 
+    cursor: default;
+    text-rendering: optimizeLegibility;
 }
 
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
+* {
+    cursor: inherit;
 }
 
+a,
+button,
+input,
+select,
+textarea {
+    cursor: initial;
+}
+
+button,
+input,
+select,
+textarea {
+    background: transparent;
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, monospace;
+}
+
+input {
+    min-height: 1.5em;
+}
+
+nav ol,
+nav ul {
+    list-style: none;
+}
+
+select {
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+}
+select::-ms-expand {
+    display: none;
+}
+select::-ms-value {
+    color: currentColor;
+}
+
+table {
+    border-spacing: 0; 
+    border-collapse: collapse;
+}
+
+textarea {
+    resize: vertical;
+}
+
+::-moz-selection {
+    background-color: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background-color: #b3d4fc;
+    text-shadow: none;
+}
+
+@media screen {
+    [hidden~="screen"] {
+        display: inherit;
+    }
+    [hidden~="screen"]:not(:active):not(:focus):not(:target) {
+        clip: rect(0 0 0 0) !important;
+        position: absolute !important;
+    }
+}
+
+/*------------------------------------*\
+    #SHARED
+\*------------------------------------*/
+/**
+ * Where `margin-bottom` is concerned,this value will be the same as the
+ * base line-height. This allows us to keep a consistent vertical rhythm.
+ * As per: csswizardry.com/2012/06/single-direction-margin-declarations
+ */
 h1,
 h2,
 h3,
@@ -506,34 +701,60 @@ fieldset,
 figure,
 pre {
     margin-bottom: 24px;
+    margin-bottom: 1.5rem;
 }
 
+/**
+ * Where `margin-left` is concerned we want to try and indent certain elements
+ * by a consistent amount. Define that amount once,here.
+ */
 ul,
 ol,
 dd {
-    margin-left: 24px;
+    margin-left: 48px;
+    margin-left: 3rem;
 }
 
 /**
  * #ELEMENTS
  */
+/*------------------------------------*\
+    #PAGE
+\*------------------------------------*/
+/**
+ * High-, page-level styling.
+ *
+ * 1. Set the default `font-size` and `line-height` for the entire project,
+ *    sourced from our default variables. The `font-size` is calculated to exist
+ *    in ems, the `line-height` is calculated to exist unitlessly.
+ * 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 3. Ensure the page always fills at least the entire height of the viewport.
+ * 4. Prevent certain mobile browsers from automatically zooming fonts.
+ * 5. Fonts on OSX will look more consistent with other systems that do not
+ *    render text using sub-pixel anti-aliasing.
+ */
 html {
-    color: #525252; 
+    overflow-y: scroll;
+    /* [2] */
+    min-height: 100%;
+    color: #333;
     /* [1] */
     background-color: #fff;
     font-size: 1em;
+    /* [5] */
+    -webkit-font-smoothing: antialiased;
+    /* [4] */
+    -moz-osx-font-smoothing: grayscale;
     /* [1] */
     line-height: 1.5;
-}
+    /* [3] */
 
-::-moz-selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-
-::selection {
-    background: #b3d4fc;
-    text-shadow: none;
+    -webkit-text-size-adjust: 100%;
+    /* [4] */
+    -ms-text-size-adjust: 100%;
+    /* [5] */
 }
 
 /*
@@ -548,42 +769,22 @@ hr {
     border-top: 1px solid #ccc;
 }
 
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-    vertical-align: middle;
-}
-
-fieldset {
-    margin: 0;
-    padding: 0; 
-    border: 0;
-}
-
-textarea {
-    resize: vertical;
-}
-
-.browserupgrade {
-    margin: 0.2em 0;
-    padding: 0.2em 0; 
-    color: #000;
-    background: #ccc;
-}
-
+/*------------------------------------*\
+    #HEADINGS
+\*------------------------------------*/
+/**
+ * Headings 1–6.
+ */
 h1 {
-    font-size: 32px;
-    font-size: 2rem;
-    line-height: 1.5;
+    font-size: 36px;
+    font-size: 2.25rem;
+    line-height: 1.3333333333;
 }
 
 h2 {
-    font-size: 28px;
-    font-size: 1.75rem;
-    line-height: 1.7142857143;
+    font-size: 30px;
+    font-size: 1.875rem;
+    line-height: 1.6;
 }
 
 h3 {
@@ -599,15 +800,15 @@ h4 {
 }
 
 h5 {
-    font-size: 18px;
-    font-size: 1.125rem;
-    line-height: 1.3333333333;
-}
-
-h6 {
     font-size: 16px;
     font-size: 1rem;
     line-height: 1.5;
+}
+
+h6 {
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 1.7142857143;
 }
 
 a {
@@ -621,6 +822,49 @@ a:focus {
     color: #314e83;
 }
 
+/*------------------------------------*\
+    #LISTS
+\*------------------------------------*/
+/**
+ * Remove extra vertical spacing when nesting lists.
+ */
+li > ul,
+li > ol {
+    margin-bottom: 0;
+}
+
+/*------------------------------------*\
+    #IMAGES
+\*------------------------------------*/
+/**
+ * 1. Fluid images for responsive purposes.
+ * 2. Offset `alt` text from surrounding copy.
+ * 3. Setting `vertical-align` removes the whitespace that appears under `img`
+ *    elements when they are dropped into a page as-is. Safer alternative to
+ *    using `display: block;`.
+ */
+img {
+    max-width: 100%;
+    /* [1] */
+    font-style: italic;
+    /* [2] */
+    vertical-align: middle;
+    /* [3] */
+}
+
+/**
+ * 1. Google Maps breaks if `max-width: 100%` acts upon it; use their selector
+ *    to remove the effects.
+ * 2. If a `width` and/or `height` attribute have been explicitly defined, let’s
+ *    not make the image fluid.
+ */
+.gm-style img,
+img[width],
+img[height] {
+    /* [2] */
+    max-width: none;
+}
+
 ul {
     list-style: square outside;
 }
@@ -629,11 +873,6 @@ li > ul,
 li > ol {
     margin-bottom: 0; 
     margin-left: 48px;
-}
-
-img {
-    max-width: 100%;
-    vertical-align: middle;
 }
 
 blockquote {
@@ -664,6 +903,139 @@ blockquote p:last-of-type:after {
     margin-left: auto;
     padding-right: 10px;
     padding-left: 10px;
+}
+
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+/**
+ * A simple button object.
+ */
+/**
+ * 1. Allow us to style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+ *    buttons).
+ * 4. Reset/normalize some styles.
+ * 5. Force all button-styled elements to appear clickable.
+ * 6. Fixes odd inner spacing in IE7.
+ * 7. Subtract the border size from the padding value so that buttons do not
+ *    grow larger as we add borders.
+ */
+.btn,
+.c-btn,
+button,
+.button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    display: inline-block;
+    /* [5] */
+    overflow: visible;
+    /* [4] */
+    margin: 0;
+    /* [6] */
+    padding: 12px 24px;
+    border: none;
+    /* [4] */
+    border-radius: 2px; 
+    /* [7] */
+    background-color: #476fba;
+    /* [2] */
+    font: inherit;
+    /* [3] */
+    text-align: center;
+    /* [1] */
+    vertical-align: middle;
+    /* [4] */
+    cursor: pointer;
+}
+.btn,
+.c-btn,
+button,
+.button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.btn:hover,
+.c-btn:hover,
+button:hover,
+.button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+.btn:active,
+.c-btn:active,
+button:active,
+.button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active,
+.btn:focus,
+.c-btn:focus,
+button:focus,
+.button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus {
+    /* [4] */
+    color: #fff; 
+    text-decoration: none;
+}
+
+/**
+ * Fix a Firefox bug whereby `input type="submit"` gains 2px extra padding.
+ */
+.btn::-moz-focus-inner,
+.c-btn::-moz-focus-inner,
+button::-moz-focus-inner,
+.button::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner {
+    padding: 0; 
+    border: 0;
+}
+
+/*------------------------------------*\
+    #LAYOUT
+\*------------------------------------*/
+/**
+ * The inuitcss layout system uses `box-sizing: border-box;` and
+ * `display: inline-block;` to create an extremely powerful, flexible
+ * alternative to the traditional grid system. Combine the layout items with
+ * the widths found in `trumps.widths`.
+ */
+/**
+ * Begin a layout group.
+ */
+.layout {
+    margin: 0;
+    margin-left: -24px; 
+    padding: 0;
+    list-style: none;
+}
+
+/**
+     * 1. Cause columns to stack side-by-side.
+     * 2. Space columns apart.
+     * 3. Align columns to the tops of each other.
+     * 4. Full-width unless told to behave otherwise.
+     * 5. Required to combine fluid widths and fixed gutters.
+     */
+.layout__item {
+    display: inline-block;
+    /* [4] */
+    /* [5] */
+    /* [5] */
+    box-sizing: border-box;
+    /* [3] */
+    width: 100%;
+    /* [1] */
+    padding-left: 24px;
+    /* [2] */
+    vertical-align: top;
+    /* [5] */
 }
 
 .o-layout {
@@ -1100,7 +1472,7 @@ blockquote p:last-of-type:after {
 /**
  * Our responsive classes, if we have enabled them.
  */
-@media only screen and (max-width: 480px) {
+@media only screen and screen and (max-width: 44.9375em) {
     /**
      * Whole
      */
@@ -1221,7 +1593,7 @@ blockquote p:last-of-type:after {
     }
 }
 
-@media only screen and (min-width: 481px) and (max-width: 1023px) {
+@media only screen and screen and (min-width: 45em) and (max-width: 63.9375em) {
     /**
      * Whole
      */
@@ -1342,7 +1714,7 @@ blockquote p:last-of-type:after {
     }
 }
 
-@media only screen and (max-width: 1023px) {
+@media only screen and screen and (max-width: 63.9375em) {
     /**
      * Whole
      */
@@ -1463,7 +1835,7 @@ blockquote p:last-of-type:after {
     }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and screen and (min-width: 64em) {
     /**
      * Whole
      */
@@ -1596,6 +1968,89 @@ blockquote p:last-of-type:after {
 /**
  * Pull classes, to move grid items back to the left by certain amounts.
  */
+/*------------------------------------*\
+    #BOX
+\*------------------------------------*/
+/**
+ * The box object simply boxes off content.
+ */
+/**
+ * 1. So we can apply the `.box` class to naturally-inline elements.
+ */
+.box {
+    display: block;
+    /* [1] */
+    padding: 24px;
+}
+.box > :last-child {
+    margin-bottom: 0;
+}
+
+/*------------------------------------*\
+    #MEDIA
+\*------------------------------------*/
+/**
+ * Place any image- and text-like content side-by-side, as per:
+ * stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+ */
+.media {
+    display: block;
+}
+
+.media__img {
+    float: left;
+    margin-right: 24px;
+}
+.media__img > img {
+    display: block;
+}
+
+.media__body {
+    display: block; 
+    overflow: hidden;
+}
+.media__body,
+.media__body > :last-child {
+    margin-bottom: 0;
+}
+
+table,
+th,
+td {
+    border: 1px solid #ebebeb;
+}
+
+table {
+    /* Prevents HTML tables from becoming too wide */
+    width: 100%; 
+    margin: 0 0 24px;
+    border-width: 1px 0 0 1px;
+    table-layout: fixed;
+    border-spacing: 0;
+    border-collapse: separate;
+}
+
+caption,
+th,
+td {
+    font-weight: normal;
+    text-align: left;
+}
+
+th {
+    border-width: 0 1px 1px 0;
+    font-weight: 700;
+}
+
+td {
+    border-width: 0 1px 1px 0;
+}
+
+th,
+td {
+    padding: 0.4em;
+}
+
 .o-media {
     display: table;
     width: 100%;
@@ -1620,11 +2075,217 @@ blockquote p:last-of-type:after {
 }
 
 /**
+ * 5.0 Forms
+ */
+input:not(.submit),
+select,
+textarea {
+    max-width: 100%;
+    margin: 0;
+    margin-bottom: 24px; 
+    border-radius: 2px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.5;
+    vertical-align: baseline;
+}
+
+input:not(.submit) {
+    line-height: normal;
+}
+
+input:not(.submit),
+textarea {
+    /* Removing the inner shadow on iOS inputs */
+    border: 1px solid #ebebeb;
+    color: #6c6c6c; 
+    background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+}
+
+input:not(.submit):focus,
+textarea:focus {
+    border: 1px solid #476fba;
+    color: #525252; 
+    background-color: #fff;
+}
+
+input:not(.submit):focus,
+select:focus {
+    outline: 2px solid #476fba;
+}
+
+input[disabled],
+select[disabled],
+textarea[disabled] {
+    opacity: 0.5; 
+    cursor: default;
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    padding: 0; 
+    border: 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+    padding: 6px;
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+textarea:focus {
+    outline: 0;
+}
+
+.post-password-form {
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: #858585;
+    font-size: 14px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.7142857143;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.post-password-form input[type="submit"] {
+    position: absolute;
+    right: 0;
+    bottom: 0; 
+    padding: 0.7917em;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    padding: 0;
+}
+
+.search-form input[type="submit"],
+.widget .search-form input[type="submit"] {
+    padding: 0;
+}
+
+fieldset {
+    padding: 0;
+    border-width: 0;
+}
+
+/*------------------------------------*\
+    #FLAG
+\*------------------------------------*/
+/**
+ * The flag object is a design pattern similar to the media object, however it
+ * utilises `display: table[-cell];` to give us control over the vertical
+ * alignments of the text and image. csswizardry.com/2013/05/the-flag-object
+ */
+/**
+ * 1. Allows us to control vertical alignments
+ * 2. Force the object to be the full width of its parent. Combined with [1],
+ *    this makes the object behave in a quasi-`display: block;` manner.
+ */
+.flag {
+    display: table;
+    /* [1] */
+    width: 100%;
+    /* [2] */
+}
+
+/**
+     * Items within a flag object. There should only ever be one of each.
+     *
+     * 1. Default to aligning content to their middles.
+     */
+.flag__img,
+.flag__body {
+    display: table-cell;
+    vertical-align: middle;
+    /* [1] */
+}
+
+/**
+     * Flag images have a space between them and the body of the object.
+     */
+.flag__img {
+    padding-right: 24px;
+}
+.flag__img > img {
+    display: block;
+    max-width: none;
+}
+
+/**
+     * The container for the main content of the flag object.
+     *
+     * 1. Forces the `.flag__body` to take up all remaining space.
+     */
+.flag__body {
+    width: 100%;
+    /* [1] */
+}
+.flag__body,
+.flag__body > :last-child {
+    margin-bottom: 0;
+}
+
+/*------------------------------------*\
+    #LIST-UI
+\*------------------------------------*/
+/**
+ * The UI list object creates blocky list items with a keyline separator out of
+ * a `ul` or `ol`.
+ */
+.list-ui,
+.list-ui__item,
+.list-ui > li {
+    border: 0 solid #ccc;
+}
+
+.list-ui {
+    margin: 0;
+    padding: 0;
+    border-top-width: 1px; 
+    list-style: none;
+}
+
+.list-ui__item,
+.list-ui > li {
+    padding: 24px;
+    border-bottom-width: 1px;
+}
+
+/**
  * #COMPONENTS
  */
 .c-page-title {
     margin-bottom: 24px;
-    border-bottom: 1px solid #b8b8b8;
 }
 
 .c-page-title__main,
@@ -1634,50 +2295,53 @@ blockquote p:last-of-type:after {
 }
 
 .c-page-title__main {
-    font-size: 48px;
-    font-size: 3rem;
-    line-height: 1;
+    font-size: 36px;
+    font-size: 2.25rem;
+    line-height: 1.3333333333;
 }
 
 .c-page-title__sub {
-    font-size: 32px;
-    font-size: 2rem;
-    line-height: 1.5;
+    font-size: 20px;
+    font-size: 1.25rem;
+    line-height: 1.2;
 }
 
-.c-btn button,
+.btn,
+.c-btn,
+button,
 .button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-    display: inline-block;
-    padding: 12px 24px;
-    border: 0;
-    border-radius: 3px;
     outline: 0;
-    color: #fff;
-    background-color: #476fba;
-    text-decoration: none;
-    -webkit-transition: background-color 0.2s;
-    transition: background-color 0.2s;
 }
-.c-btn button:hover,
-.c-btn button:focus,
+.btn:hover,
+.c-btn:hover,
+button:hover,
 .button:hover,
-.button:focus,
 input[type="button"]:hover,
-input[type="button"]:focus,
 input[type="reset"]:hover,
-input[type="reset"]:focus,
 input[type="submit"]:hover,
+.btn:active,
+.c-btn:active,
+button:active,
+.button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active,
+.btn:focus,
+.c-btn:focus,
+button:focus,
+.button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
 input[type="submit"]:focus {
-    color: #fff; 
-    background-color: #314e83;
+    background-color: #385996;
 }
 
 .c-testimonial {
     padding: 24px;
-    border-radius: 3px;
+    border-radius: 2px;
     background-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -1706,7 +2370,8 @@ input[type="submit"]:focus {
     content: "— ";
 }
 
-.c-avatar {
+.c-avatar,
+.avatar {
     display: block;
     width: 64px;
     height: 64px; 
@@ -1830,6 +2495,186 @@ input[type="submit"]:focus {
 /**
  * #TRUMPS
  */
+/*------------------------------------*\
+    #WIDTHS
+\*------------------------------------*/
+/**
+ * A series of width helper classes that you can use to size things like grid
+ * systems. Classes can take a fraction-like format (e.g. `.2/3`) or a spoken-
+ * word format (e.g. `two-thirds`). Toggle formats by overriding the
+ * `$inuit-use-fractions` variable defined below.
+ */
+/**
+     * Whole.
+     */
+[class~="1/1"] {
+    width: 100% !important;
+}
+
+/**
+     * Halves.
+     */
+[class~="1/2"],
+[class~="2/4"],
+[class~="3/6"],
+[class~="4/8"],
+[class~="5/10"],
+[class~="6/12"] {
+    width: 50% !important;
+}
+
+/**
+     * Thirds.
+     */
+[class~="1/3"],
+[class~="2/6"],
+[class~="3/9"],
+[class~="4/12"] {
+    width: 33.3333333% !important;
+}
+
+[class~="2/3"],
+[class~="4/6"],
+[class~="6/9"],
+[class~="8/12"] {
+    width: 66.6666666% !important;
+}
+
+/**
+     * Quarters.
+     */
+[class~="1/4"],
+[class~="2/8"],
+[class~="3/12"] {
+    width: 25% !important;
+}
+
+[class~="3/4"],
+[class~="6/8"],
+[class~="9/12"] {
+    width: 75% !important;
+}
+
+/**
+     * Fifths.
+     */
+[class~="1/5"],
+[class~="2/10"] {
+    width: 20% !important;
+}
+
+[class~="2/5"],
+[class~="4/10"] {
+    width: 40% !important;
+}
+
+[class~="3/5"],
+[class~="6/10"] {
+    width: 60% !important;
+}
+
+[class~="4/5"],
+[class~="8/10"] {
+    width: 80% !important;
+}
+
+/**
+     * Sixths.
+     */
+[class~="1/6"],
+[class~="2/12"] {
+    width: 16.6666666% !important;
+}
+
+[class~="5/6"],
+[class~="10/12"] {
+    width: 83.3333333% !important;
+}
+
+/**
+     * Eighths.
+     */
+[class~="1/8"] {
+    width: 12.5% !important;
+}
+
+[class~="3/8"] {
+    width: 37.5% !important;
+}
+
+[class~="5/8"] {
+    width: 62.5% !important;
+}
+
+[class~="7/8"] {
+    width: 87.5% !important;
+}
+
+/**
+     * Ninths.
+     */
+[class~="1/9"] {
+    width: 11.1111111% !important;
+}
+
+[class~="2/9"] {
+    width: 22.2222222% !important;
+}
+
+[class~="4/9"] {
+    width: 44.4444444% !important;
+}
+
+[class~="5/9"] {
+    width: 55.5555555% !important;
+}
+
+[class~="7/9"] {
+    width: 77.7777777% !important;
+}
+
+[class~="8/9"] {
+    width: 88.8888888% !important;
+}
+
+/**
+     * Tenths.
+     */
+[class~="1/10"] {
+    width: 10% !important;
+}
+
+[class~="3/10"] {
+    width: 30% !important;
+}
+
+[class~="7/10"] {
+    width: 70% !important;
+}
+
+[class~="9/10"] {
+    width: 90% !important;
+}
+
+/**
+     * Twelfths.
+     */
+[class~="1/12"] {
+    width: 8.3333333% !important;
+}
+
+[class~="5/12"] {
+    width: 41.6666666% !important;
+}
+
+[class~="7/12"] {
+    width: 58.3333333% !important;
+}
+
+[class~="11/12"] {
+    width: 91.6666666% !important;
+}
+
 .u-link-bare {
     text-decoration: none !important;
 }
@@ -1867,6 +2712,15 @@ input[type="submit"]:focus {
     max-width: 75%;
 }
 
+/*------------------------------------*\
+    #SPACING
+\*------------------------------------*/
+/**
+ * Margin and padding helper classes. Use these to tweak layout on a micro
+ * level.
+ *
+ * `.(m|p)(t|r|b|l|h|v)(-|+|0) {}` = margin/padding top/right/bottom/left/horizontal/vertical less/more/none
+ */
 /*------------------------------------*\
     #HELPERS
 \*------------------------------------*/
@@ -1951,4 +2805,53 @@ input[type="submit"]:focus {
     display: block;
     clear: both;
     margin: 0 auto;
+}
+
+/*------------------------------------*\
+    #HEADINGS
+\*------------------------------------*/
+/**
+ * Headings 1–6’s corresponding Greek-alphabet abstract classes for double-
+ * stranded heading hierarchy: csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
+ *
+ * Use these helper classes to cause other elements to adopt the styling of the
+ * respective heading, e.g.:
+ *
+   <h2 class="alpha">Lorem ipsum</h2>
+ *
+ */
+.alpha {
+    font-size: 36px;
+    font-size: 2.25rem;
+    line-height: 1.3333333333;
+}
+
+.beta {
+    font-size: 30px;
+    font-size: 1.875rem;
+    line-height: 1.6;
+}
+
+.gamma {
+    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.delta {
+    font-size: 20px;
+    font-size: 1.25rem;
+    line-height: 1.2;
+}
+
+.epsilon {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.zeta {
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 1.7142857143;
 }

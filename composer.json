@@ -21,7 +21,7 @@
     "forum": "http://community.flagshipwp.com/category/compass"
   },
   "config": {
-    "vendor-dir": "assets/composer"
+    "vendor-dir": "src/composer"
   },
   "require": {
     "justintadlock/hybrid-core": "dev-dev",

@@ -34,9 +34,9 @@ class Doc_Attributes {
 	public $menu_li_social          = '';	// menu-item
 
 	/* Header attributes. */
-	public $branding              	= '';	// site-branding
-	public $site_title            	= '';	// site-title
-	public $site_description      	= '';	// site-description
+	public $branding              	= ' c-page-title';	// site-branding
+	public $site_title            	= ' c-page-title__main';	// site-title
+	public $site_description      	= ' c-page-title__sub';	// site-description
 
 	/* Loop attributes. */
 	public $loop_meta             	= '';	// loop-meta

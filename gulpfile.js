@@ -16,6 +16,7 @@ var composer = require('gulp-composer');
 var csscomb = require('gulp-csscomb');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
+var bower = require('gulp-bower');
 var reload = browserSync.reload;
 
 var AUTOPREFIXER_BROWSERS = [
@@ -36,41 +37,53 @@ gulp.task('composer', function () {
 
 // Optimize Images
 gulp.task('images', function () {
-  return gulp.src('assets/flagship/images/**/*')
+  return gulp.src('src/images/**/*')
     .pipe($.imagemin({
       progressive: true,
       interlaced: true,
       removeUselessStrokeAndFill: true,
       removeEmptyAttrs: true
     }))
-    .pipe(gulp.dest('assets/images'))
     .pipe($.if('*.svg', $.rename({
 			prefix: 'svg-',
 			extname: '.php'
 		})))
-    .pipe(gulp.dest('assets/svg'));
+    .pipe(gulp.dest('images'));
 });
 
 // Copy hybrid-core to extras
 gulp.task('hybrid', function () {
   return gulp.src([
-  	'assets/composer/justintadlock/hybrid-core/**/*'
+  	'composer/justintadlock/hybrid-core/**/*'
   	])
     .pipe(gulp.dest('hybrid-core'));
 });
 
-// Copy customizer-library to vendors
-// gulp.task('customizer', function () {
+// Copy mehcss to src
+// gulp.task('mehcss', function () {
 //   return gulp.src([
-//   	'vendor/devinsays/customizer-library/**/*'
+//   	'node_modules/mehcss/**/*'
 //   	])
-//     .pipe(gulp.dest('inc/vendors/customizer-library'));
+//     .pipe(gulp.dest('src/scss/meh'));
+// });
+
+// Copy starter css to src
+// gulp.task('primer', function () {
+//   return gulp.src([
+//     'node_modules/normalize.css/normalize.css',
+//     'node_modules/sanitize.css/sanitize.scss'
+//     ])
+//     .pipe(rename({ prefix: '_' }))
+//     .pipe($.if('*.css', $.rename({
+//             extname: '.scss'
+//         })))
+//     .pipe(gulp.dest('src/scss/reset'));
 // });
 
 // Copy customizer-library to vendors
 gulp.task('flagship', function () {
   return gulp.src([
-  	'assets/composer/flagshipwp/flagship-library/**/*'
+  	'src/composer/flagshipwp/flagship-library/**/*'
   	])
     .pipe(gulp.dest('includes/vendor/flagship-library'));
 });
@@ -78,17 +91,22 @@ gulp.task('flagship', function () {
 // Copy customizer-library to vendors
 gulp.task('tha', function () {
   return gulp.src([
-  	'assets/composer/zamoose/themehookalliance/tha-theme-hooks.php'
+  	'src/composer/zamoose/themehookalliance/tha-theme-hooks.php'
   	])
     .pipe(gulp.dest('includes/vendor'));
+});
+
+gulp.task('bower', function() {
+  return bower()
+    .pipe(gulp.dest('src/scss/bower'))
 });
 
 // Compile and Automatically Prefix Stylesheets
 gulp.task('styles', function () {
   return gulp.src([
-    'assets/flagship/scss/*.scss',
-    'assets/flagship/scss/**/*.css',
-    'assets/flagship/scss/style.scss'
+    'src/scss/*.scss',
+    'src/scss/**/*.css',
+    'src/style.scss'
   ])
     .pipe($.changed('styles', {extension: '.scss'}))
     .pipe($.sass({
@@ -107,14 +125,14 @@ gulp.task('styles', function () {
 // Concatenate And Minify JavaScript
 gulp.task('scripts', function() {
   return gulp.src([
-  	'assets/flagship/js/**/*.js'
+  	'src/js/**/*.js'
   	])
     .pipe($.concat('main.js'))
     .pipe(gulp.dest('js'))
     .pipe(rename({ suffix: '.min' }))
     .pipe($.uglify({preserveComments: 'some'}))
     // Output Files
-    .pipe(gulp.dest('assets/js'));
+    .pipe(gulp.dest('js'));
 });
 
 // Build and serve the output
@@ -126,12 +144,12 @@ gulp.task('serve', ['default'], function () {
      });
 
   gulp.watch(['**/*.php'], reload);
-  gulp.watch(['assets/flagship/scss/**/*.{scss,css}'], ['styles', reload]);
-  gulp.watch(['assets/flagship/js/**/*.js'], reload);
-  gulp.watch(['assets/flagship/images/**/*'], reload);
+  gulp.watch(['src/scss/**/*.{scss,css}'], ['styles', reload]);
+  gulp.watch(['src/js/**/*.js'], reload);
+  gulp.watch(['src/images/**/*'], reload);
 });
 
 // Build Production Files, the Default Task
 gulp.task('default', function (cb) {
-  runSequence('composer', ['styles', 'scripts', 'images', 'hybrid', 'flagship', 'tha'], cb);
+  runSequence('composer', ['bower', 'scripts', 'images', 'styles', 'hybrid', 'flagship', 'tha'], cb);
 });
