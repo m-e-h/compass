@@ -11,21 +11,22 @@ class Doc_Attributes {
 	/* Attributes for major structural elements. */
 	public $body                  	= '';	// get_body_class()
 	public $site_container    		= '';	// site-container
-	public $site_inner   			= ' grid';	// site-inner
-	public $site_inner_full_width		= ' grid grid--flex'; 	// content
-	public $site_inner_single_column 	= ' grid grid--flex'; 	// content
-	public $site_inner_sidebar_right 	= ' grid grid--flex'; 	// content
-	public $site_inner_sidebar_left 	= ' grid grid--flex grid--rev'; 	// content
+	public $site_inner   			= ' test-class o-grid o-wrapper';	// site-inner
+	public $site_inner_full_width		= ' o-grid grid--flex'; 	// content
+	public $site_inner_single_column 	= ' o-grid o-grid--flex o-wrapper'; 	// content
+	public $site_inner_sidebar_right 	= ' test-right o-grid o-grid--flex o-wrapper'; 	// content
+	public $site_inner_sidebar_left 	= ' test-left o-grid o-grid--flex o-o-grid--rev o-wrapper'; 	// content
+	public $wrap                	= ' o-wrapper'; 	// site-header
 	public $header                	= ''; 	// site-header
 	public $footer                	= ''; 	// site-footer
-	public $content_full_width		= ' grid__item'; 	// content
-	public $content_single_column 	= ' grid__item'; 	// content
-	public $content_sidebar_right 	= ' u-2/3 grid__item'; 	// content
-	public $content_sidebar_left 	= ' u-2/3 grid__item'; 	// content
-	public $sidebar_full_width  	= ' grid__item';	// sidebar sidebar__{$context}
-	public $sidebar_single_column  	= ' grid__item';	// sidebar sidebar__{$context}
-	public $sidebar_sidebar_right 	= ' u-1/3 grid__item';	// sidebar sidebar__{$context}
-	public $sidebar_sidebar_left	= ' u-1/3 grid__item';	// sidebar sidebar__{$context}
+	public $content_full_width		= ' o-grid__item'; 	// content
+	public $content_single_column 	= ' o-grid__item'; 	// content
+	public $content_sidebar_right 	= ' u-2/3 o-grid__item'; 	// content
+	public $content_sidebar_left 	= ' u-2/3 o-grid__item--rev'; 	// content
+	public $sidebar_full_width  	= ' o-grid__item';	// sidebar sidebar__{$context}
+	public $sidebar_single_column  	= ' o-grid__item';	// sidebar sidebar__{$context}
+	public $sidebar_sidebar_right 	= ' u-1/3 o-grid__item';	// sidebar sidebar__{$context}
+	public $sidebar_sidebar_left	= ' u-1/3 o-grid__item';	// sidebar sidebar__{$context}
 	public $sidebar_footer          = '';	// sidebar sidebar__{$context}
 	public $menu_primary 			= ' menu--horizontal';	// menu menu-{$context}
 	public $menu_secondary 			= ' menu--horizontal';	// menu menu-{$context}
@@ -61,6 +62,7 @@ class Doc_Attributes {
 		add_filter( 'hybrid_attr_body',				[ $this, 'body' ] );
 		add_filter( 'hybrid_attr_site-container', 	[ $this, 'site_container' ] );
 		add_filter( 'hybrid_attr_site-inner', 		[ $this, 'site_inner' ] );
+		add_filter( 'hybrid_attr_wrap',				[ $this, 'wrap' ] );
 		add_filter( 'hybrid_attr_header',			[ $this, 'header' ] );
 		add_filter( 'hybrid_attr_footer',			[ $this, 'footer' ] );
 		add_filter( 'hybrid_attr_content',			[ $this, 'content' ] );
@@ -119,6 +121,12 @@ class Doc_Attributes {
 		$attr['class']    .= $this->site_inner;
 
 	endif;
+		return $attr;
+	}
+
+
+	public function wrap( $attr ) {
+		$attr['class']    .= $this->wrap;
 		return $attr;
 	}
 
@@ -297,6 +305,37 @@ class Doc_Attributes {
 		$attr['class']    .= $this->entry_terms;
 		return $attr;
 	}
+
 }
 
+
 $ShinyAtts = new Doc_Attributes();
+
+
+
+function theme_classes_customizer_script() {
+
+$layoutclasses = new Doc_Attributes;
+$innerclass    = $layoutclasses->site_inner( $attr );
+?>
+<script type="text/javascript">
+fakeAttr = <?php echo json_encode($innerclass['class']); ?>;
+
+
+if ( $( "body" ).hasclass( "layout-2c-l" ) ) {
+
+    $("#content").addClass('fakeAttr');
+
+}
+
+else if ( $( "body" ).hasclass( "layout-2c-r" ) ) {
+
+    $("#content").addClass('fakeAttr');
+
+}
+
+</script>
+<?php
+}
+
+add_action('customize_controls_print_scripts', 'theme_classes_customizer_script');

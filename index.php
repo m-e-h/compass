@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     Compass
+ * @package     BEMpress
  * @subpackage  HybridCore
  * @copyright   Copyright (c) 2015, Flagship Software, LLC
  * @license     GPL-2.0+
@@ -22,7 +22,7 @@
 		<?php hybrid_get_menu( 'breadcrumbs' ); ?>
 
 		<?php
-			if ( ! is_front_page() && ! is_home() && ! is_404() ) :
+			if ( !is_front_page() && !is_singular() && !is_404() ) :
 				get_template_part( 'content/parts/loop-meta' );
 			endif;
 		?>
@@ -41,7 +41,7 @@
 					if ( is_singular() ) :
 						flagship_post_navigation();
 						comments_template( '', true );
-					endif; // End check for single post.
+					endif;
 				?>
 
 			<?php endwhile; ?>

@@ -1,7 +1,9 @@
 .o-wrapper {
-    max-width: 940px;
-    margin-right: auto;
-    margin-left:  auto;
-    padding-right: 10px;
-    padding-left:  10px;
+    padding-right: 5%;
+    padding-left:  5%;
+
+    @include media-query(lap-and-up) {
+        padding-right: 10%;
+        padding-left:  10%;
+    }
 }

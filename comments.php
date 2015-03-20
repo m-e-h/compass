@@ -2,7 +2,7 @@
 /**
  * The template for displaying comments.
  *
- * @package     Compass
+ * @package     BEMpress
  * @subpackage  HybridCore
  * @copyright   Copyright (c) 2015, Flagship Software, LLC
  * @license     GPL-2.0+

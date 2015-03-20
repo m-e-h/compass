@@ -1,5 +1,5 @@
 {
-  "name": "flagshipwp/compass",
+  "name": "flagshipwp/bempress",
   "description": "The most advanced WordPress Starter theme ever created.",
   "keywords": ["wordpress", "theme", "flagship"],
   "homepage": "https://flagshipwp.com",
@@ -17,8 +17,8 @@
     }
   ],
   "support": {
-    "issues": "https://github.com/flagshipwp/compass/issues",
-    "forum": "http://community.flagshipwp.com/category/compass"
+    "issues": "https://github.com/flagshipwp/bempress/issues",
+    "forum": "http://community.flagshipwp.com/category/bempress"
   },
   "config": {
     "vendor-dir": "src/composer"

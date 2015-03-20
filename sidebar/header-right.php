@@ -4,7 +4,7 @@
  *
  * Currently not in use.
  *
- * @package     Compass
+ * @package     BEMpress
  * @subpackage  HybridCore
  * @copyright   Copyright (c) 2015, Flagship Software, LLC
  * @license     GPL-2.0+
@@ -30,12 +30,12 @@ elseif ( current_user_can( 'edit_theme_options' ) ) :
 	<div <?php hybrid_attr( 'header-right' ); ?>>
 
 		<p class="no-menu">
-			<?php _e( 'This is a widget area! It\'s perfect for a custom menu.', 'compass' ); ?>
+			<?php _e( 'This is a widget area! It\'s perfect for a custom menu.', 'bempress' ); ?>
 
 			<?php
 			printf(	'<a class="button" href="%1$s">%2$s</a>',
 				flagship_get_customizer_link(),
-				__( 'Customize Now', 'compass' )
+				__( 'Customize Now', 'bempress' )
 			);
 			?>
 		</p>

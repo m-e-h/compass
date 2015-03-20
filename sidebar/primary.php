@@ -2,7 +2,7 @@
 /**
  * Primary Sidebar Template
  *
- * @package     Compass
+ * @package     BEMpress
  * @subpackage  HybridCore
  * @copyright   Copyright (c) 2015, Flagship Software, LLC
  * @license     GPL-2.0+
@@ -21,7 +21,7 @@
 
 		<span id="sidebar-primary-title" class="screen-reader-text"><?php
 			// Translators: %s is the sidebar name. This is the sidebar title shown to screen readers.
-			printf( _x( '%s', 'sidebar title', 'compass' ), hybrid_get_sidebar_name( 'primary' ) );
+			printf( _x( '%s', 'sidebar title', 'bempress' ), hybrid_get_sidebar_name( 'primary' ) );
 		?></span>
 
 		<?php if ( is_active_sidebar( 'primary' ) ) : ?>
@@ -34,9 +34,9 @@
 			the_widget(
 				'WP_Widget_Text',
 				array(
-					'title'  => __( 'Example Widget', 'compass' ),
+					'title'  => __( 'Example Widget', 'bempress' ),
 					// Translators: The %s are placeholders for HTML, so the order can't be changed.
-					'text'   => sprintf( __( 'This is an example widget to show how the Primary sidebar looks by default. You can add custom widgets from the %swidgets screen%s in the admin.', 'compass' ), current_user_can( 'edit_theme_options' ) ? '<a href="' . esc_url( admin_url( 'widgets.php' ) ) . '">' : '', current_user_can( 'edit_theme_options' ) ? '</a>' : '' ),
+					'text'   => sprintf( __( 'This is an example widget to show how the Primary sidebar looks by default. You can add custom widgets from the %swidgets screen%s in the admin.', 'bempress' ), current_user_can( 'edit_theme_options' ) ? '<a href="' . esc_url( admin_url( 'widgets.php' ) ) . '">' : '', current_user_can( 'edit_theme_options' ) ? '</a>' : '' ),
 					'filter' => true,
 				),
 				array(

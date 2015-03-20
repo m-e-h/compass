@@ -232,13 +232,10 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
 \*------------------------------------*/
 /**
  * 1. Allow the grid system to be used on lists.
- * 2. Remove any margins and paddings that might affect the grid system.
  * 3. Apply a negative `margin-left` to negate the columns’ gutters.
  */
-#{$class-type}grid {
+#{$class-type}o-grid {
     list-style:none;                /* [1] */
-    margin:0;                       /* [2] */
-    padding:0;                      /* [2] */
     margin-left:-$gutter;           /* [3] */
 
     @if not $use-markup-fix {
@@ -249,7 +246,7 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
 @if not $use-markup-fix {
     /* Opera hack */
     .opera:-o-prefocus,
-    #{$class-type}grid {
+    #{$class-type}o-grid {
         word-spacing:-0.43em;
     }
 }
@@ -261,7 +258,7 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
      * 3. Align columns to the tops of each other.
      * 4. Full-width unless told to behave otherwise.
      */
-    #{$class-type}grid__item {
+    #{$class-type}o-grid__item {
         display:inline-block;           /* [1] */
         padding-left:$gutter;           /* [2] */
         vertical-align:top;             /* [3] */
@@ -280,13 +277,13 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
  * Reversed grids allow you to structure your source in the opposite order to
  * how your rendered layout will appear. Extends `.grid`.
  */
-#{$class-type}grid--flex {
+#{$class-type}o-grid--flex {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 
 
-    > #{$class-type}grid__item {
+    > #{$class-type}o-grid__item {
         width: auto;
           //flex: 0 0 auto;
     }
@@ -296,11 +293,11 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
  * Reversed grids allow you to structure your source in the opposite order to
  * how your rendered layout will appear. Extends `.grid`.
  */
-#{$class-type}grid--rev {
+#{$class-type}o-grid--rev {
     direction:rtl;
     text-align:left;
 
-    > #{$class-type}grid__item {
+    > #{$class-type}o-grid__item {
         direction:ltr;
         text-align:left;
     }
@@ -311,10 +308,10 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
  * Gutterless grids have all the properties of regular grids, minus any spacing.
  * Extends `.grid`.
  */
-#{$class-type}grid--full {
+#{$class-type}o-grid--full {
     margin-left:0;
 
-    > #{$class-type}grid__item {
+    > #{$class-type}o-grid__item {
         padding-left:0;
     }
 }
@@ -323,10 +320,10 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
 /**
  * Align the entire grid to the right. Extends `.grid`.
  */
-#{$class-type}grid--right {
+#{$class-type}o-grid--right {
     text-align:right;
 
-    > #{$class-type}grid__item {
+    > #{$class-type}o-grid__item {
         text-align:left;
     }
 }
@@ -336,10 +333,10 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
  * Centered grids align grid items centrally without needing to use push or pull
  * classes. Extends `.grid`.
  */
-#{$class-type}grid--center {
+#{$class-type}o-grid--center {
     text-align:center;
 
-    > #{$class-type}grid__item {
+    > #{$class-type}o-grid__item {
         text-align:left;
     }
 }
@@ -349,16 +346,16 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
  * Align grid cells vertically (`.grid--middle` or `.grid--bottom`). Extends
  * `.grid`.
  */
-#{$class-type}grid--middle {
+#{$class-type}o-grid--middle {
 
-    > #{$class-type}grid__item {
+    > #{$class-type}o-grid__item {
         vertical-align:middle;
     }
 }
 
-#{$class-type}grid--bottom {
+#{$class-type}o-grid--bottom {
 
-    > #{$class-type}grid__item {
+    > #{$class-type}o-grid__item {
         vertical-align:bottom;
     }
 }
@@ -367,10 +364,10 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
 /**
  * Create grids with narrower gutters. Extends `.grid`.
  */
-#{$class-type}grid--narrow {
+#{$class-type}o-grid--narrow {
     margin-left:-($gutter / 2);
 
-    > #{$class-type}grid__item {
+    > #{$class-type}o-grid__item {
         padding-left:$gutter / 2;
     }
 }
@@ -379,10 +376,10 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
 /**
  * Create grids with wider gutters. Extends `.grid`.
  */
-#{$class-type}grid--wide {
+#{$class-type}o-grid--wide {
     margin-left:-($gutter * 2);
 
-    > #{$class-type}grid__item {
+    > #{$class-type}o-grid__item {
         padding-left:$gutter * 2;
     }
 }

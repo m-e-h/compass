@@ -54,31 +54,10 @@ gulp.task('images', function () {
 // Copy hybrid-core to extras
 gulp.task('hybrid', function () {
   return gulp.src([
-  	'composer/justintadlock/hybrid-core/**/*'
+  	'src/composer/justintadlock/hybrid-core/**/*'
   	])
     .pipe(gulp.dest('hybrid-core'));
 });
-
-// Copy mehcss to src
-// gulp.task('mehcss', function () {
-//   return gulp.src([
-//   	'node_modules/mehcss/**/*'
-//   	])
-//     .pipe(gulp.dest('src/scss/meh'));
-// });
-
-// Copy starter css to src
-// gulp.task('primer', function () {
-//   return gulp.src([
-//     'node_modules/normalize.css/normalize.css',
-//     'node_modules/sanitize.css/sanitize.scss'
-//     ])
-//     .pipe(rename({ prefix: '_' }))
-//     .pipe($.if('*.css', $.rename({
-//             extname: '.scss'
-//         })))
-//     .pipe(gulp.dest('src/scss/reset'));
-// });
 
 // Copy customizer-library to vendors
 gulp.task('flagship', function () {
@@ -97,7 +76,7 @@ gulp.task('tha', function () {
 });
 
 gulp.task('bower', function() {
-  return bower()
+  return bower('bower_components')
     .pipe(gulp.dest('src/scss/bower'))
 });
 

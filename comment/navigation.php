@@ -2,7 +2,7 @@
 /**
  * A template part to display comment pagination.
  *
- * @package     Compass
+ * @package     BEMpress
  * @subpackage  HybridCore
  * @copyright   Copyright (c) 2015, Flagship Software, LLC
  * @license     GPL-2.0+
@@ -15,13 +15,13 @@
 
 	<nav id="comments-nav" class="comments-nav pagination" role="navigation" aria-labelledby="comments-nav-title">
 
-		<h3 id="comments-nav-title" class="screen-reader-text"><?php _e( 'Comments Navigation', 'compass' ); ?></h3>
+		<h3 id="comments-nav-title" class="screen-reader-text"><?php _e( 'Comments Navigation', 'bempress' ); ?></h3>
 
 		<?php
 		paginate_comments_links(
 			array(
-				'prev_text' => sprintf( '<span class="screen-reader-text">%s</span>' , __( 'Previous Comment Page', 'compass' ) ),
-				'next_text' => sprintf( '<span class="screen-reader-text">%s</span>', __( 'Next Comment Page', 'compass' ) ),
+				'prev_text' => sprintf( '<span class="screen-reader-text">%s</span>' , __( 'Previous Comment Page', 'bempress' ) ),
+				'next_text' => sprintf( '<span class="screen-reader-text">%s</span>', __( 'Next Comment Page', 'bempress' ) ),
 			)
 		);
 		?>

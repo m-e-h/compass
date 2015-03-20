@@ -2,7 +2,7 @@
 /**
  * A template part for displaying an entry in both single and archive posts.
  *
- * @package     Compass
+ * @package     BEMpress
  * @subpackage  HybridCore
  * @copyright   Copyright (c) 2015, Flagship Software, LLC
  * @license     GPL-2.0+
@@ -34,7 +34,7 @@
 
 		<div class="media-info">
 
-			<h3><?php _e( 'Audio Info', 'compass' ); ?></h3>
+			<h3><?php _e( 'Audio Info', 'bempress' ); ?></h3>
 
 			<?php hybrid_media_meta(); ?>
 
@@ -46,7 +46,7 @@
 
 	<article <?php hybrid_attr( 'post' ); ?>>
 
-		<?php get_the_image( array( 'size' => 'compass-full', 'order' => array( 'featured', 'attachment' ) ) ); ?>
+		<?php get_the_image( array( 'size' => 'bempress-full', 'order' => array( 'featured', 'attachment' ) ) ); ?>
 
 		<?php get_template_part( 'content/parts/archive', 'header' ); ?>
 

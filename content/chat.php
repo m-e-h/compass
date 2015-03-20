@@ -2,7 +2,7 @@
 /**
  * A template part for displaying an entry in both single and archive posts.
  *
- * @package     Compass
+ * @package     BEMpress
  * @subpackage  HybridCore
  * @copyright   Copyright (c) 2015, Flagship Software, LLC
  * @license     GPL-2.0+

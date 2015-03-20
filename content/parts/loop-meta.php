@@ -2,7 +2,7 @@
 /**
  * A template part to display meta data for an archive page.
  *
- * @package     Compass
+ * @package     BEMpress
  * @subpackage  HybridCore
  * @copyright   Copyright (c) 2015, Flagship Software, LLC
  * @license     GPL-2.0+

@@ -2,7 +2,7 @@
 /**
  * The primary nav menu template.
  *
- * @package     Compass
+ * @package     BEMpress
  * @subpackage  HybridCore
  * @copyright   Copyright (c) 2015, Flagship Software, LLC
  * @license     GPL-2.0+
@@ -17,7 +17,7 @@
 		<span id="menu-primary-title" class="screen-reader-text">
 			<?php
 			// Translators: %s is the nav menu name. This is the nav menu title shown to screen readers.
-			printf( _x( '%s', 'nav menu title', 'compass' ), hybrid_get_menu_location_name( 'primary' ) );
+			printf( _x( '%s', 'nav menu title', 'bempress' ), hybrid_get_menu_location_name( 'primary' ) );
 			?>
 		</span>
 
@@ -40,7 +40,7 @@
 	<div class="header-right">
 		<p class="no-menu">
 
-			<?php _e( "Ready to add your primary menu? Let's get started!", 'compass' ); ?>
+			<?php _e( "Ready to add your primary menu? Let's get started!", 'bempress' ); ?>
 
 			<?php
 			printf(	'<a class="button" href="%1$s">%2$s</a>',
@@ -48,7 +48,7 @@
 					'focus_type'   => 'section',
 					'focus_target' => 'nav',
 				) ),
-				__( 'Add a Menu', 'compass' )
+				__( 'Add a Menu', 'bempress' )
 			);
 			?>
 

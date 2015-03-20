@@ -1,5 +1,5 @@
 /*------------------------------------*\
-    #Compass
+    #BEMpress
 \*------------------------------------*/
 
 /**
@@ -79,7 +79,6 @@
 @import "bower/inuit-normalize/generic.normalize";
 @import "generic.reset";
 @import "bower/sanitize-css/sanitize";
-@import "bower/inuit-shared/generic.shared";
 
 
 
@@ -106,7 +105,6 @@
 /**
  * #OBJECTS
  */
-@import "objects.wrappers";
 @import "bower/inuit-buttons/objects.buttons";
 @import "bower/inuit-layout/objects.layout";
 @import "objects.layout";
@@ -117,6 +115,7 @@
 @import "objects.forms";
 @import "bower/inuit-flag/objects.flag";
 @import "bower/inuit-list-ui/objects.list-ui";
+@import "objects.wrappers";
 
 
 

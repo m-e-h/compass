@@ -2,7 +2,7 @@
 /**
  * A template part for displaying single video attachments.
  *
- * @package     Compass
+ * @package     BEMpress
  * @subpackage  HybridCore
  * @copyright   Copyright (c) 2015, Flagship Software, LLC
  * @license     GPL-2.0+
@@ -40,7 +40,7 @@
 
 	<div class="media-info">
 
-		<h3><?php _e( 'Video Info', 'compass' ); ?></h3>
+		<h3><?php _e( 'Video Info', 'bempress' ); ?></h3>
 
 		<?php hybrid_media_meta(); ?>
 

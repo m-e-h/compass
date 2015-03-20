@@ -2,7 +2,7 @@
 /**
  * The secondary nav menu template.
  *
- * @package     Compass
+ * @package     BEMpress
  * @subpackage  HybridCore
  * @copyright   Copyright (c) 2015, Flagship Software, LLC
  * @license     GPL-2.0+
@@ -17,7 +17,7 @@
 		<span id="menu-secondary-title" class="screen-reader-text">
 			<?php
 			// Translators: %s is the nav menu name. This is the nav menu title shown to screen readers.
-			printf( _x( '%s', 'nav menu title', 'compass' ), hybrid_get_menu_location_name( 'secondary' ) );
+			printf( _x( '%s', 'nav menu title', 'bempress' ), hybrid_get_menu_location_name( 'secondary' ) );
 			?>
 		</span>
 

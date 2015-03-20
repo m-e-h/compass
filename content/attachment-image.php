@@ -2,7 +2,7 @@
 /**
  * A template part for displaying single image attachments.
  *
- * @package     Compass
+ * @package     BEMpress
  * @subpackage  HybridCore
  * @copyright   Copyright (c) 2015, Flagship Software, LLC
  * @license     GPL-2.0+
@@ -31,7 +31,7 @@
 		<h1 <?php hybrid_attr( 'entry-title' ); ?>><?php single_post_title(); ?></h1>
 
 		<div class="entry-byline">
-			<span class="image-sizes"><?php printf( __( 'Sizes: %s', 'compass' ), hybrid_get_image_size_links() ); ?></span>
+			<span class="image-sizes"><?php printf( __( 'Sizes: %s', 'bempress' ), hybrid_get_image_size_links() ); ?></span>
 		</div><!-- .entry-byline -->
 
 	</header><!-- .entry-header -->
@@ -56,7 +56,7 @@
 
 	<div class="media-info image-info">
 
-		<h3 class="attachment-meta-title"><?php _e( 'Image Info', 'compass' ); ?></h3>
+		<h3 class="attachment-meta-title"><?php _e( 'Image Info', 'bempress' ); ?></h3>
 
 		<?php hybrid_media_meta(); ?>
 
@@ -67,7 +67,7 @@
 	<?php if ( ! empty( $gallery ) ) : // Check if the gallery is not empty. ?>
 
 		<div class="image-gallery">
-			<h3 class="attachment-meta-title"><?php _e( 'Gallery', 'compass' ); ?></h3>
+			<h3 class="attachment-meta-title"><?php _e( 'Gallery', 'bempress' ); ?></h3>
 			<?php echo $gallery; ?>
 		</div>
 
