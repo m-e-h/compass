@@ -11,11 +11,11 @@ class Doc_Attributes {
 	/* Attributes for major structural elements. */
 	public $body                  	= '';	// get_body_class()
 	public $site_container    		= '';	// site-container
-	public $site_inner   			= ' test-class o-grid o-wrapper';	// site-inner
-	public $site_inner_full_width		= ' o-grid grid--flex'; 	// content
-	public $site_inner_single_column 	= ' o-grid o-grid--flex o-wrapper'; 	// content
-	public $site_inner_sidebar_right 	= ' test-right o-grid o-grid--flex o-wrapper'; 	// content
-	public $site_inner_sidebar_left 	= ' test-left o-grid o-grid--flex o-o-grid--rev o-wrapper'; 	// content
+	public $site_inner   			= ' o-grid o-wrapper o-grid--flex';	// site-inner
+	public $site_inner_full_width		= ' o-grid--wide'; 	// content
+	public $site_inner_single_column 	= ' o-grid--narrow'; 	// content
+	public $site_inner_sidebar_right 	= ' '; 	// content
+	public $site_inner_sidebar_left 	= ' o-grid--rev'; 	// content
 	public $wrap                	= ' o-wrapper'; 	// site-header
 	public $header                	= ''; 	// site-header
 	public $footer                	= ''; 	// site-footer
@@ -106,6 +106,7 @@ class Doc_Attributes {
 
 
 	public function site_inner( $attr ) {
+		$attr['class']    .= $this->site_inner;
 	if ( '1c' 	== get_theme_mod( 'theme_layout' ) ) :
 		$attr['class']    	.= $this->site_inner_full_width;
 
@@ -117,8 +118,6 @@ class Doc_Attributes {
 
 	elseif ( '2c-r'	 	== get_theme_mod( 'theme_layout' ) ) :
 		$attr['class']    	.= $this->site_inner_sidebar_left;
-	else:
-		$attr['class']    .= $this->site_inner;
 
 	endif;
 		return $attr;
@@ -311,31 +310,62 @@ class Doc_Attributes {
 
 $ShinyAtts = new Doc_Attributes();
 
+/* Add layout option in Customize. */
+add_action( 'customize_register', 'meh_layouts_customize_register' );
 
+function meh_layouts_customize_register( $wp_customize ) {
+
+	/* If viewing the customize preview screen, add a script to show a live preview. */
+	if ( $wp_customize->is_preview() )
+		add_action( 'wp_footer', 'theme_classes_customizer_script', 21 );
+}
 
 function theme_classes_customizer_script() {
 
 $layoutclasses = new Doc_Attributes;
-$innerclass    = $layoutclasses->site_inner( $attr );
+$right = $layoutclasses->site_inner_sidebar_right;
+$left = $layoutclasses->site_inner_sidebar_left;
+$single = $layoutclasses->site_inner_single_column;
+$wide = $layoutclasses->site_inner_full_width;
 ?>
+
 <script type="text/javascript">
-fakeAttr = <?php echo json_encode($innerclass['class']); ?>;
 
-
-if ( $( "body" ).hasclass( "layout-2c-l" ) ) {
-
-    $("#content").addClass('fakeAttr');
-
-}
-
-else if ( $( "body" ).hasclass( "layout-2c-r" ) ) {
-
-    $("#content").addClass('fakeAttr');
-
-}
+wp.customize(
+	'theme_layout',
+	function( value ) {
+		value.bind(
+			function( to ) {
+			if(to == '2c-r') {
+				jQuery('#site-inner').removeClass(<?php echo json_encode($right); ?>);
+				jQuery('#site-inner').removeClass(<?php echo json_encode($wide); ?>);
+				jQuery('#site-inner').removeClass(<?php echo json_encode($single); ?>);
+				jQuery( '#site-inner' ).addClass(<?php echo json_encode($left); ?>);
+			}
+			else if(to == '2c-l') {
+				jQuery('#site-inner').removeClass(<?php echo json_encode($left); ?>);
+				jQuery('#site-inner').removeClass(<?php echo json_encode($wide); ?>);
+				jQuery('#site-inner').removeClass(<?php echo json_encode($single); ?>);
+				jQuery( '#site-inner' ).addClass(<?php echo json_encode($right); ?>);
+			}
+			if(to == '1c') {
+				jQuery('#site-inner').removeClass(<?php echo json_encode($right); ?>);
+				jQuery('#site-inner').removeClass(<?php echo json_encode($left); ?>);
+				jQuery('#site-inner').removeClass(<?php echo json_encode($single); ?>);
+				jQuery( '#site-inner' ).addClass(<?php echo json_encode($wide); ?>);
+			}
+			else if(to == '1c-narrow') {
+				jQuery('#site-inner').removeClass(<?php echo json_encode($right); ?>);
+				jQuery('#site-inner').removeClass(<?php echo json_encode($left); ?>);
+				jQuery('#site-inner').removeClass(<?php echo json_encode($wide); ?>);
+				jQuery( '#site-inner' ).addClass(<?php echo json_encode($single); ?>);
+			}
+			}
+		);
+	}
+);
 
 </script>
 <?php
 }
 
-add_action('customize_controls_print_scripts', 'theme_classes_customizer_script');
