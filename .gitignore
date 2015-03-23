@@ -6,6 +6,7 @@
 # Development files
 /node_modules
 /bower_components
+/bower
 
 # Generated theme files
 *.map
