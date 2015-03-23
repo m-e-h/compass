@@ -30,12 +30,12 @@
 			array(
 				'size'   => 'bempress-full',
 				'order'  => array( 'featured', 'attachment' ),
-				'before' => '<div class="featured-media image">',
-				'after'  => '</div>',
+				'image_class' => 'block__img',
+				'link_to_post' => false,
 			)
 		);
 		?>
-
+		<div class="block__body">
 		<?php get_template_part( 'content/parts/archive', 'header' ); ?>
 
 		<?php get_template_part( 'content/parts/archive', 'content' ); ?>
@@ -45,5 +45,5 @@
 		<?php endif; // End single post check. ?>
 
 	<?php tha_entry_bottom(); ?>
-
+</div>
 </article><!-- .entry -->

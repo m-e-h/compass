@@ -22,6 +22,7 @@
     "inuit-list-ui": "~0.4.1",
     "inuit-widths": "~0.3.2",
     "inuit-spacing": "~0.7.0",
+    "inuit-block": "~0.1.2",
     "inuit-shared": "~0.1.5"
   }
 }

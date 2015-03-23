@@ -499,6 +499,9 @@ video {
  * Normalization
  */
 :root {
+    overflow-y: scroll;
+
+    -ms-overflow-style: -ms-autohiding-scrollbar;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     text-size-adjust: 100%;
@@ -2262,6 +2265,36 @@ fieldset {
     }
 }
 
+/*------------------------------------*\
+    #BLOCK
+\*------------------------------------*/
+/**
+ * The block object simply stacks an image on top of some text-like content.
+ */
+/**
+ * Stacked image-with-text object. A simple abstraction to cover a very commonly
+ * occurring design pattern.
+ */
+.block {
+    display: block;
+}
+
+/**
+     * 1. Eliminate whitespace around images.
+     */
+.block__img {
+    /* [1] */
+    margin-bottom: 24px; 
+    vertical-align: middle;
+}
+
+/**
+     * Text-content.
+     */
+.block__body {
+    display: block;
+}
+
 /**
  * #COMPONENTS
  */
@@ -2471,6 +2504,59 @@ input[type="submit"]:focus {
 /* Horizontal Menus - show the dropdown arrow */
 .menu--horizontal .menu-item-has-children > a:after {
     content: "\25BE";
+}
+
+/*------------------------------------*\
+    #META-DATA
+\*------------------------------------*/
+.entry-meta__item {
+    margin-right: 5px;
+}
+
+/*------------------------------------*\
+    #CODE
+\*------------------------------------*/
+.form-allowed-tags code,
+pre {
+    overflow: auto;
+    position: relative;
+    max-width: 100%;
+    margin-bottom: 24px;
+    padding: 5px 12px;
+    border-radius: 2px;
+    color: #171d20;
+    background-color: #f3f5f6;
+    font-size: 15px;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    -moz-tab-size: 4;
+    tab-size: 4;
+}
+
+code {
+    display: inline-block;
+    padding: 0 2px;
+    border-radius: 2px;
+    color: #171d20;
+    background-color: #f3f5f6;
+    font-weight: normal; 
+    -moz-tab-size: 4;
+    tab-size: 4;
+}
+
+kbd {
+    margin: 0 0.25em;
+    padding: 0.3334em 0.5em;
+    border: 1px solid #c6d1d6;
+    border-radius: 2px;
+    color: #171d20;
+    background-color: #f3f5f6;
+    box-shadow: inset 0 1px 0 #fff;
+}
+
+.form-allowed-button {
+    color: #9f9f9f;
+    cursor: default;
 }
 
 /**
