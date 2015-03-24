@@ -85,7 +85,7 @@ function bempress_setup() {
 	) ) );
 
 	// https://github.com/FlagshipWP/flagship-library/wiki/Flagship-Author-Box
-	add_theme_support( 'flagship-author-box' );
+	//add_theme_support( 'flagship-author-box' );
 
 	// https://github.com/FlagshipWP/flagship-library/wiki/Flagship-Footer-Widgets
 	add_theme_support( 'flagship-footer-widgets', 3 );
@@ -109,7 +109,6 @@ function bempress_includes() {
 	require_once $includes_dir . 'vendor/tha-theme-hooks.php';
 
 	// Load all PHP files in the includes directory.
-	require_once $includes_dir . 'compatibility.php';
 	require_once $includes_dir . 'general.php';
 	require_once $includes_dir . 'scripts.php';
 	require_once $includes_dir . 'widgetize.php';

@@ -18,7 +18,7 @@
 <?php if ( is_singular( get_post_type() ) ) : //single posts. ?>
 
 
-		<?php get_template_part( 'content/parts/single', 'content' ); ?>
+		<?php get_template_part( 'templates/single', 'content' ); ?>
 
 		<footer class="entry-footer">
 			<p class="entry-meta">
@@ -35,7 +35,7 @@
 <?php else : // If not viewing a single post. ?>
 
 
-		<?php get_template_part( 'content/parts/single', 'content' ); ?>
+		<?php get_template_part( 'templates/single', 'content' ); ?>
 
 		<footer class="entry-footer">
 			<p class="entry-meta">

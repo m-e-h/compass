@@ -1,0 +1,218 @@
+/*------------------------------------*\
+    #BLOCK
+\*------------------------------------*/
+
+/**
+ * The block object simply stacks an image on top of some text-like content.
+ */
+
+// Predefine the variables below in order to alter and enable specific features.
+
+$block-gutter:            $base-spacing-unit !default;
+$block-gutter--tiny:        quarter($block-gutter) !default;
+$block-gutter--small:         halve($block-gutter) !default;
+$block-gutter--large:        double($block-gutter) !default;
+$block-gutter--huge:      quadruple($block-gutter) !default;
+
+$enable-block--flush:     true !default;
+$enable-block--tiny:      true !default;
+$enable-block--small:     true !default;
+$enable-block--large:     true !default;
+$enable-block--huge:      true !default;
+$enable-block--center:    true !default;
+$enable-block--right:     true !default;
+
+
+
+
+
+/**
+ * Stacked image-with-text object. A simple abstraction to cover a very commonly
+ * occurring design pattern.
+ */
+.block {
+    display: block;
+    max-width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    background: #fff;
+    padding: 0;
+    border: none;
+    border-radius: .2857rem;
+    box-shadow: 0 3px 0 0 #d4d4d5,0 0 0 1px #d4d4d5;
+    transition: box-shadow .2s ease;
+    margin: 1em 0;
+}
+
+
+    /**
+     * 1. Eliminate whitespace around images.
+     */
+    .block__img {
+        vertical-align: middle; /* [1] */
+
+        display: block;
+        position: relative;
+        padding: 0;
+        background: rgba(0,0,0,.05);
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: .2857rem .2857rem 0 0;
+            border: none;
+        }
+
+        @if ($enable-block--flush == true) {
+
+            /**
+             * No space between the image and the text content.
+             */
+
+            .block--flush > & {
+                margin-bottom: 0;
+            }
+
+        }
+
+        @if ($enable-block--tiny == true) {
+
+            /**
+             * Tiny space between the image and the text content.
+             */
+
+            .block--tiny > & {
+                margin-bottom: $block-gutter--tiny;
+            }
+
+        }
+
+        @if ($enable-block--small == true) {
+
+            /**
+             * Small space between the image and the text content.
+             */
+
+            .block--small > & {
+                margin-bottom: $block-gutter--small
+            }
+
+        }
+
+        @if ($enable-block--large == true) {
+
+            /**
+             * Large space between the image and the text content.
+             */
+
+            .block--large > & {
+                margin-bottom: $block-gutter--large;
+            }
+
+        }
+
+        @if ($enable-block--huge == true) {
+
+            /**
+             * Huge space between the image and the text content.
+             */
+
+            .block--huge > & {
+                margin-bottom: $block-gutter--huge;
+            }
+
+        }
+
+    }
+
+
+
+
+
+    /**
+     * Text-content.
+     */
+
+    .block__content {
+        flex-grow: 1;
+        background: 0 0;
+        margin: 0;
+        padding: 1em;
+        box-shadow: none;
+        font-size: 1em;
+        border: none;
+        border-radius: 0;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    .block__heading {
+        font-weight: 700;
+        font-size: 1.2em;
+        margin-top: -.165em;
+        line-height: 1.33em;
+        display: block;
+        margin: 0;
+    }
+
+    .block__meta {
+        font-size: .9em;
+        color: rgba(0,0,0,.4);
+    }
+
+    .block__body {
+        margin-top: .5em;
+    }
+
+    .block__footer {
+        max-width: 100%;
+        min-height: 0!important;
+        flex-grow: 0;
+        position: static;
+        background: 0 0;
+        width: auto;
+        margin: 0;
+        padding: .75em 1em;
+        top: 0;
+        left: 0;
+        color: rgba(0,0,0,.4);
+        box-shadow: none;
+        transition: color .2s ease;
+        border-top: 1px solid rgba(0,0,0,.05);
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+
+
+
+@if ($enable-block--right == true) {
+
+    /**
+     * Right-aligned blocks.
+     */
+
+    .block--right {
+        text-align: right;
+    }
+
+}
+
+@if ($enable-block--center == true) {
+
+    /**
+     * Center-aligned blocks.
+     */
+
+    .block--center {
+        text-align: center;
+    }
+
+}

@@ -6,7 +6,7 @@
  */
 
 
-class Doc_Attributes {
+class AttrTrumps {
 
 	/* Attributes for major structural elements. */
 	public $body                  	= '';	// get_body_class()
@@ -19,14 +19,16 @@ class Doc_Attributes {
 	public $wrap                	= ' o-wrapper'; 	// site-header
 	public $header                	= ''; 	// site-header
 	public $footer                	= ''; 	// site-footer
-	public $content_full_width		= ' o-grid__item'; 	// content
-	public $content_single_column 	= ' o-grid__item'; 	// content
-	public $content_sidebar_right 	= ' u-2/3 o-grid__item'; 	// content
+	public $content 				= ' o-grid__item'; 	// content
+	public $content_full_width		= ''; 	// content
+	public $content_single_column 	= ''; 	// content
+	public $content_sidebar_right 	= ' u-2/3'; 	// content
 	public $content_sidebar_left 	= ' u-2/3 o-grid__item--rev'; 	// content
-	public $sidebar_full_width  	= ' o-grid__item';	// sidebar sidebar__{$context}
-	public $sidebar_single_column  	= ' o-grid__item';	// sidebar sidebar__{$context}
-	public $sidebar_sidebar_right 	= ' u-1/3 o-grid__item';	// sidebar sidebar__{$context}
-	public $sidebar_sidebar_left	= ' u-1/3 o-grid__item';	// sidebar sidebar__{$context}
+	public $sidebar 				= ' o-grid__item';	// sidebar sidebar__{$context}
+	public $sidebar_full_width  	= ' u-1/3';	// sidebar sidebar__{$context}
+	public $sidebar_single_column  	= ' u-1/3';	// sidebar sidebar__{$context}
+	public $sidebar_sidebar_right 	= ' u-1/3';	// sidebar sidebar__{$context}
+	public $sidebar_sidebar_left	= ' u-1/3';	// sidebar sidebar__{$context}
 	public $sidebar_footer          = '';	// sidebar sidebar__{$context}
 	public $menu_primary 			= ' menu--horizontal';	// menu menu-{$context}
 	public $menu_secondary 			= ' menu--horizontal';	// menu menu-{$context}
@@ -45,7 +47,7 @@ class Doc_Attributes {
 	public $loop_description      	= '';	// loop-description
 
 	/* Post-specific attributes. */
-	public $post                  	= ' block';	// get_post_class()
+	public $post                  	= '';	// get_post_class()
 	public $entry_title           	= '';	// entry-title
 	public $entry_author          	= ' entry-meta__item entry-meta__author';	// entry-author
 	public $entry_published       	= ' entry-meta__item entry-meta__date';	// entry-published updated
@@ -143,6 +145,7 @@ class Doc_Attributes {
 
 
 	public function content( $attr ) {
+		$attr['class']    .= $this->content;
 	if ( '1c' 	== get_theme_mod( 'theme_layout' ) ) :
 		$attr['class']    	.= $this->content_full_width;
 
@@ -166,6 +169,7 @@ class Doc_Attributes {
 		}
 
 		if ( 'primary' === $context ) {
+			$attr['class']    .= $this->sidebar;
 			if ( '1c'	== get_theme_mod( 'theme_layout' ) ) :
 				$attr['class']	.= $this->sidebar_full_width;
 
@@ -308,7 +312,7 @@ class Doc_Attributes {
 }
 
 
-$ShinyAtts = new Doc_Attributes();
+$ShinyAtts = new AttrTrumps();
 
 /* Add layout option in Customize. */
 add_action( 'customize_register', 'meh_layouts_customize_register' );
@@ -322,7 +326,7 @@ function meh_layouts_customize_register( $wp_customize ) {
 
 function theme_classes_customizer_script() {
 
-$layoutclasses = new Doc_Attributes;
+$layoutclasses = new AttrTrumps();
 $right = $layoutclasses->site_inner_sidebar_right;
 $left = $layoutclasses->site_inner_sidebar_left;
 $single = $layoutclasses->site_inner_single_column;

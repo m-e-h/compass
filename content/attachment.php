@@ -18,7 +18,7 @@
 <?php if ( is_singular( get_post_type() ) ) : //single posts. ?>
 
 
-		<?php get_template_part( 'content/parts/single', 'header' ); ?>
+		<?php get_template_part( 'templates/single', 'header' ); ?>
 
 	<div class="entry-content">
 		<?php hybrid_attachment(); // Function for handling non-image attachments. ?>
@@ -49,9 +49,9 @@
 		);
 		?>
 
-		<?php get_template_part( 'content/parts/archive', 'header' ); ?>
+		<?php get_template_part( 'templates/archive', 'header' ); ?>
 
-		<?php get_template_part( 'content/parts/archive', 'content' ); ?>
+		<?php get_template_part( 'templates/archive', 'content' ); ?>
 
 
 <?php endif; // End single post check. ?>

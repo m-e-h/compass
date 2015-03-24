@@ -14,9 +14,9 @@
 
 	<?php tha_entry_top(); ?>
 
-	<?php get_template_part( 'content/parts/single', 'header' ); ?>
+	<?php get_template_part( 'templates/single', 'header' ); ?>
 
-	<?php get_template_part( 'content/parts/single', 'content' ); ?>
+	<?php get_template_part( 'templates/single', 'content' ); ?>
 
 	<?php if ( current_user_can( 'edit_pages' ) ) : ?>
 		<footer class="entry-footer">

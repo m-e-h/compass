@@ -23,7 +23,7 @@
 
 		<?php
 			if ( !is_front_page() && !is_singular() && !is_404() ) :
-				get_template_part( 'content/parts/loop-meta' );
+				get_template_part( 'templates/loop-meta' );
 			endif;
 		?>
 
@@ -37,12 +37,6 @@
 
 				<?php tha_entry_after(); ?>
 
-				<?php
-					if ( is_singular() ) :
-						flagship_post_navigation();
-						comments_template( '', true );
-					endif;
-				?>
 
 			<?php endwhile; ?>
 

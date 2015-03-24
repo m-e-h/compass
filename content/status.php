@@ -26,7 +26,7 @@
 
 	<?php endif; // End avatars check. ?>
 
-		<?php get_template_part( 'content/parts/single', 'content' ); ?>
+		<?php get_template_part( 'templates/single', 'content' ); ?>
 
 		<footer class="entry-footer">
 			<p class="entry-meta">
@@ -51,7 +51,7 @@
 
 	<?php endif; // End avatars check. ?>
 
-		<?php get_template_part( 'content/parts/single', 'content' ); ?>
+		<?php get_template_part( 'templates/single', 'content' ); ?>
 
 	<?php if ( ! get_option( 'show_avatars' ) ) : // If avatars are not enabled. ?>
 

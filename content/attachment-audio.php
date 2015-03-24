@@ -17,9 +17,9 @@
 
 		<?php hybrid_attachment(); // Function for handling non-image attachments. ?>
 
-		<?php get_template_part( 'content/parts/single', 'header' ); ?>
+		<?php get_template_part( 'templates/single', 'header' ); ?>
 
-		<?php get_template_part( 'content/parts/single', 'content' ); ?>
+		<?php get_template_part( 'templates/single', 'content' ); ?>
 
 		<footer class="entry-footer">
 			<p class="entry-meta">
@@ -48,9 +48,9 @@
 
 		<?php get_the_image( array( 'size' => 'bempress-full', 'order' => array( 'featured', 'attachment' ) ) ); ?>
 
-		<?php get_template_part( 'content/parts/archive', 'header' ); ?>
+		<?php get_template_part( 'templates/archive', 'header' ); ?>
 
-		<?php get_template_part( 'content/parts/archive', 'content' ); ?>
+		<?php get_template_part( 'templates/archive', 'content' ); ?>
 
 	</article><!-- .entry -->
 

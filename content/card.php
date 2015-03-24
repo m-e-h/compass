@@ -11,11 +11,11 @@
  */
 
 
-$layoutcards = new AttrTrumps();
-$layoutcards->post = ' block__content';	// get_post_class()
-$layoutcards->entry_title = ' block__heading';	// entry-title
-$layoutcards->entry_author = ' block__meta entry-meta__item entry-meta__author';	// entry-author
-$layoutcards->entry_published = ' block__meta entry-meta__item entry-meta__date';	// entry-published updated
+$layoutcards = new Doc_Attributes;
+	public $post                  	= ' block__content';	// get_post_class()
+	public $entry_title           	= ' block__heading';	// entry-title
+	public $entry_author          	= ' block__meta entry-meta__item entry-meta__author';	// entry-author
+	public $entry_published       	= ' block__meta entry-meta__item entry-meta__date';	// entry-published updated
 
 
 ?>

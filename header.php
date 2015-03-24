@@ -55,5 +55,3 @@
 		</header><!-- #header -->
 
 		<?php tha_header_after(); ?>
-
-		<?php hybrid_get_menu( 'secondary' ); ?>
