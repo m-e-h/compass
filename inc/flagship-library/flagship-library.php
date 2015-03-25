@@ -276,12 +276,6 @@ if ( ! class_exists( 'Flagship_Library' ) ) {
 			if ( current_theme_supports( 'flagship-author-box' ) ) {
 				require_once $this->dir . 'classes/author-box.php';
 			}
-			if ( current_theme_supports( 'breadcrumb-trail' ) ) {
-				require_once $this->dir . 'customizer/classes/breadcrumb-display.php';
-			}
-			if ( current_theme_supports( 'flagship-footer-widgets' ) ) {
-				require_once $this->dir . 'classes/footer-widgets.php';
-			}
 			if ( current_theme_supports( 'site-logo' ) ) {
 				add_action( 'init', array( $this, 'logo_includes' ), 12 );
 			}
