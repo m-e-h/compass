@@ -60,19 +60,11 @@ gulp.task('hybrid', function () {
 });
 
 // Copy customizer-library to vendors
-gulp.task('flagship', function () {
-  return gulp.src([
-  	'src/composer/flagshipwp/flagship-library/**/*'
-  	])
-    .pipe(gulp.dest('includes/vendor/flagship-library'));
-});
-
-// Copy customizer-library to vendors
 gulp.task('tha', function () {
   return gulp.src([
   	'src/composer/zamoose/themehookalliance/tha-theme-hooks.php'
   	])
-    .pipe(gulp.dest('includes/vendor'));
+    .pipe(gulp.dest('inc'));
 });
 
 gulp.task('bower', function() {
@@ -85,7 +77,7 @@ gulp.task('styles', function () {
   return gulp.src([
     'src/scss/*.scss',
     'src/scss/**/*.css',
-    'src/style.scss'
+    'src/scss/style.scss'
   ])
     .pipe($.changed('styles', {extension: '.scss'}))
     .pipe($.sass({
@@ -130,5 +122,5 @@ gulp.task('serve', ['default'], function () {
 
 // Build Production Files, the Default Task
 gulp.task('default', function (cb) {
-  runSequence('composer', ['bower', 'scripts', 'images', 'styles', 'hybrid', 'flagship', 'tha'], cb);
+  runSequence('composer', ['bower', 'scripts', 'images', 'styles', 'hybrid', 'tha'], cb);
 });

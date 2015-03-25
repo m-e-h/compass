@@ -10,8 +10,6 @@
  * @since       1.0.0
  */
 
-// Display breadcrumbs based on user selections in the customizer.
-if ( flagship_display_breadcrumbs() ) {
 	// Use Yoast breadcrumbs if they're available.
 	if ( function_exists( 'yoast_breadcrumb' ) ) {
 		yoast_breadcrumb(
@@ -30,4 +28,3 @@ if ( flagship_display_breadcrumbs() ) {
 			)
 		);
 	}
-}

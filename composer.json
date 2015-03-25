@@ -1,31 +1,23 @@
 {
-  "name": "flagshipwp/bempress",
-  "description": "The most advanced WordPress Starter theme ever created.",
-  "keywords": ["wordpress", "theme", "flagship"],
-  "homepage": "https://flagshipwp.com",
+  "name": "m-e-h/bempress",
+  "description": "WordPress Starter theme.",
+  "keywords": ["wordpress", "theme", "bempress"],
   "type": "wordpress-theme",
   "license": "GPL-2.0+",
   "authors": [
     {
-      "name": "Robert Neu",
-      "email": "rob@flagshipwp.com",
-      "homepage": "https://flagshipwp.com"
-    },
-    {
-      "name": "Gary Jones",
-      "homepage": "http://gamajo.com"
+      "name": "Marty Helmick",
+      "email": "info@martyhelmick.com"
     }
   ],
   "support": {
-    "issues": "https://github.com/flagshipwp/bempress/issues",
-    "forum": "http://community.flagshipwp.com/category/bempress"
+    "issues": "https://github.com/m-e-h/bempress/issues"
   },
   "config": {
     "vendor-dir": "src/composer"
   },
   "require": {
     "justintadlock/hybrid-core": "dev-dev",
-    "flagshipwp/flagship-library": "~1.4",
     "zamoose/themehookalliance": "dev-master",
     "composer/installers": "~1.0"
   }

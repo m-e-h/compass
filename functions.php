@@ -18,10 +18,6 @@ add_action( 'after_setup_theme', 'bempress_setup', 10 );
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- *
  * @since   1.0.0
  * @return  void
  */
@@ -85,7 +81,7 @@ function bempress_setup() {
 	) ) );
 
 	// https://github.com/FlagshipWP/flagship-library/wiki/Flagship-Author-Box
-	//add_theme_support( 'flagship-author-box' );
+	add_theme_support( 'flagship-author-box' );
 
 	// https://github.com/FlagshipWP/flagship-library/wiki/Flagship-Footer-Widgets
 	add_theme_support( 'flagship-footer-widgets', 3 );
@@ -100,15 +96,13 @@ add_action( 'after_setup_theme', 'bempress_includes', 10 );
  */
 function bempress_includes() {
 	// Set the includes directories.
-	$includes_dir = trailingslashit( get_template_directory() ) . 'includes/';
+	$includes_dir = trailingslashit( get_template_directory() ) . 'inc/';
 
 	// Load the main file in the Flagship library directory.
-	require_once $includes_dir . 'vendor/flagship-library/flagship-library.php';
-
-	// Load all PHP files in the vendor directory.
-	require_once $includes_dir . 'vendor/tha-theme-hooks.php';
+	require_once $includes_dir . 'flagship-library/flagship-library.php';
 
 	// Load all PHP files in the includes directory.
+	require_once $includes_dir . 'tha-theme-hooks.php';
 	require_once $includes_dir . 'general.php';
 	require_once $includes_dir . 'scripts.php';
 	require_once $includes_dir . 'widgetize.php';
@@ -118,10 +112,3 @@ function bempress_includes() {
 
 // Add a hook for child themes to execute code.
 do_action( 'flagship_after_setup_parent' );
-
-
-add_action( 'after_setup_theme', 'remove_flagship_hierarchy' );
-
-function remove_flagship_hierarchy() {
-remove_filter( 'hybrid_content_template_hierarchy', 'flagship_content_template_hierarchy' );
-}

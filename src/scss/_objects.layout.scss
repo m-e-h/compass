@@ -1,32 +1,3 @@
-.o-layout {
-    margin:  0;
-    padding: 0;
-    list-style: none;
-    //margin-left: -$base-spacing-unit;
-
-    &--flex {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-}
-
-    .o-layout__item {
-        display: inline-block;
-        vertical-align: top;
-        //padding-left: $base-spacing-unit;
-    }
-
-
-
-
-
-
-
-
-
-
-
 /*------------------------------------*\
     $CSSWIZARDRY-GRIDS
 \*------------------------------------*/
@@ -53,19 +24,19 @@
  * designed around devices of a size you specify. Out of the box, csswizardry
  * grids caters to the following types of device:
  *
- * palm     --  palm-based devices, like phones and small tablets
- * lap      --  lap-based devices, like iPads or laptops
- * portable --  all of the above
- * desk     --  stationary devices, like desktop computers
+ * sm     --  sm-based devices, like phones and small tablets
+ * md      --  md-based devices, like iPads or mdtops
+ * lg --  all of the above
+ * xl     --  stationary devices, like xltop computers
  * regular  --  any/all types of device
  *
  * These namespaces are then used in the library to give you the ability to
  * manipulate your layouts based around them, for example:
  *
-   <div class="grid__item  one-whole  lap--one-half  desk--one-third">
+   <div class="grid__item  one-whole  md--one-half  xl--one-third">
  *
- * This would give you a grid item which is 100% width unless it is on a lap
- * device, at which point it become 50% wide, or it is on a desktop device, at
+ * This would give you a grid item which is 100% width unless it is on a md
+ * device, at which point it become 50% wide, or it is on a xltop device, at
  * which point it becomes 33.333% width.
  *
  * csswizardry grids also has push and pull classes which allow you to nudge
@@ -82,11 +53,11 @@
  * quickly be able to piece together any combinations you can imagine, for
  * example:
  *
-   `class="grid__item  one-whole  lap--one-half  desk--one-third  push--desk--one-third"`
+   `class="grid__item  one-whole  md--one-half  xl--one-third  push--xl--one-third"`
  *
-   `class="grid__item  one-quarter  palm--one-half  push--palm--one-half"`
+   `class="grid__item  one-quarter  sm--one-half  push--sm--one-half"`
  *
-   `class="grid__item  palm--one-third  desk--five-twelfths"`
+   `class="grid__item  sm--one-third  xl--five-twelfths"`
  */
 
 
@@ -125,8 +96,8 @@ $use-silent-classes:    false !default;
 /**
  * Would you like push and pull classes enabled?
  */
-$push:                  false !default;
-$pull:                  false !default;
+$push:                  true !default;
+$pull:                  true !default;
 
 
 /**
@@ -146,20 +117,20 @@ $use-markup-fix:        true !default;
 
 /**
  * Define your breakpoints. The first value is the prefix that shall be used for
- * your classes (e.g. `.palm--one-half`), the second value is the media query
+ * your classes (e.g. `.sm--one-half`), the second value is the media query
  * that the breakpoint fires at.
  */
-$breakpoints: (
-    'palm' '(max-width: 480px)',
-    'lap' '(min-width: 481px) and (max-width: 1023px)',
-    'portable' '(max-width: 1023px)',
-    'desk' '(min-width: 1024px)'
-) !default;
+// $breakpoints: (
+//     'sm' '(max-width: 480px)',
+//     'md' '(min-width: 481px)',
+//     'lg' '(min-width: 1023px)',
+//     'xl' '(min-width: 1024px)'
+// ) !default;
 
 
 /**
  * Define which namespaced breakpoints you would like to generate for each of
- * widths, push and pull. This is handy if you only need pull on, say, desk, or
+ * widths, push and pull. This is handy if you only need pull on, say, xl, or
  * you only need a new width breakpoint at mobile sizes. It allows you to only
  * compile as much CSS as you need. All are turned on by default, but you can
  * add and remove breakpoints at will.
@@ -167,9 +138,9 @@ $breakpoints: (
  * Push and pull shall only be used if `$push` and/or `$pull` and `$responsive`
  * have been set to ‘true’.
  */
-$breakpoint-has-widths: ('palm', 'lap', 'portable', 'desk') !default;
-$breakpoint-has-push:   ('palm', 'lap', 'portable', 'desk') !default;
-$breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk') !default;
+$breakpoint-has-widths: ('sm', 'md', 'lg', 'xl') !default;
+$breakpoint-has-push:   ('sm', 'md', 'lg', 'xl') !default;
+$breakpoint-has-pull:   ('sm', 'md', 'lg', 'xl') !default;
 
 
 /**
@@ -201,7 +172,7 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
         @if $media-query == $name and $declaration {
             $breakpoint-found: true;
 
-            @media only screen and #{$declaration} {
+            @media only #{$declaration} {
                 @content;
             }
         }
@@ -234,7 +205,7 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
  * 1. Allow the grid system to be used on lists.
  * 3. Apply a negative `margin-left` to negate the columns’ gutters.
  */
-#{$class-type}o-grid {
+.o-grid {
     list-style:none;                /* [1] */
     margin-left:-$gutter;           /* [3] */
 
@@ -246,7 +217,7 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
 @if not $use-markup-fix {
     /* Opera hack */
     .opera:-o-prefocus,
-    #{$class-type}o-grid {
+    .o-grid {
         word-spacing:-0.43em;
     }
 }
@@ -258,7 +229,7 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
      * 3. Align columns to the tops of each other.
      * 4. Full-width unless told to behave otherwise.
      */
-    #{$class-type}o-grid__item {
+    .o-grid__item {
         display:inline-block;           /* [1] */
         padding-left:$gutter;           /* [2] */
         vertical-align:top;             /* [3] */
@@ -277,14 +248,14 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
  * Reversed grids allow you to structure your source in the opposite order to
  * how your rendered layout will appear. Extends `.grid`.
  */
-#{$class-type}o-grid--flex {
+.o-grid--flex {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 
 
-    > #{$class-type}o-grid__item {
-        width: auto;
+    > .o-grid__item {
+        //width: auto;
           //flex: 0 0 auto;
     }
 }
@@ -293,11 +264,11 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
  * Reversed grids allow you to structure your source in the opposite order to
  * how your rendered layout will appear. Extends `.grid`.
  */
-#{$class-type}o-grid--rev {
+.o-grid--rev {
     direction:rtl;
     text-align:left;
 
-    > #{$class-type}o-grid__item {
+    > .o-grid__item {
         direction:ltr;
         text-align:left;
     }
@@ -308,10 +279,10 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
  * Gutterless grids have all the properties of regular grids, minus any spacing.
  * Extends `.grid`.
  */
-#{$class-type}o-grid--full {
+.o-grid--full {
     margin-left:0;
 
-    > #{$class-type}o-grid__item {
+    > .o-grid__item {
         padding-left:0;
     }
 }
@@ -320,10 +291,10 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
 /**
  * Align the entire grid to the right. Extends `.grid`.
  */
-#{$class-type}o-grid--right {
+.o-grid--right {
     text-align:right;
 
-    > #{$class-type}o-grid__item {
+    > .o-grid__item {
         text-align:left;
     }
 }
@@ -333,10 +304,10 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
  * Centered grids align grid items centrally without needing to use push or pull
  * classes. Extends `.grid`.
  */
-#{$class-type}o-grid--center {
+.o-grid--center {
     text-align:center;
 
-    > #{$class-type}o-grid__item {
+    > .o-grid__item {
         text-align:left;
     }
 }
@@ -346,16 +317,16 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
  * Align grid cells vertically (`.grid--middle` or `.grid--bottom`). Extends
  * `.grid`.
  */
-#{$class-type}o-grid--middle {
+.o-grid--middle {
 
-    > #{$class-type}o-grid__item {
+    > .o-grid__item {
         vertical-align:middle;
     }
 }
 
-#{$class-type}o-grid--bottom {
+.o-grid--bottom {
 
-    > #{$class-type}o-grid__item {
+    > .o-grid__item {
         vertical-align:bottom;
     }
 }
@@ -364,10 +335,10 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
 /**
  * Create grids with narrower gutters. Extends `.grid`.
  */
-#{$class-type}o-grid--narrow {
+.o-grid--narrow {
     margin-left:-($gutter / 2);
 
-    > #{$class-type}o-grid__item {
+    > .o-grid__item {
         padding-left:$gutter / 2;
     }
 }
@@ -376,371 +347,11 @@ $class-type: if($use-silent-classes, unquote("%"), unquote("."));
 /**
  * Create grids with wider gutters. Extends `.grid`.
  */
-#{$class-type}o-grid--wide {
+.o-grid--wide {
     margin-left:-($gutter * 2);
 
-    > #{$class-type}o-grid__item {
+    > .o-grid__item {
         padding-left:$gutter * 2;
     }
 }
 
-
-
-
-
-/*------------------------------------*\
-    $WIDTHS
-\*------------------------------------*/
-/**
- * Create our width classes, prefixed by the specified namespace.
- */
-@mixin device-type($namespace:"") {
-    $prefix: $class-type + $namespace;
-
-    /**
-     * Whole
-     */
-    #{$prefix}one-whole         { width:100%; }
-
-
-    /**
-     * Halves
-     */
-    #{$prefix}one-half          { width:50%; }
-
-
-    /**
-     * Thirds
-     */
-    #{$prefix}one-third         { width:33.333%; }
-    #{$prefix}two-thirds        { width:66.666%; }
-
-
-    /**
-     * Quarters
-     */
-    #{$prefix}one-quarter       { width:25%; }
-    #{$prefix}two-quarters      { @extend #{$prefix}one-half; }
-    #{$prefix}three-quarters    { width:75%; }
-
-
-    /**
-     * Fifths
-     */
-    #{$prefix}one-fifth         { width:20%; }
-    #{$prefix}two-fifths        { width:40%; }
-    #{$prefix}three-fifths      { width:60%; }
-    #{$prefix}four-fifths       { width:80%; }
-
-
-    /**
-     * Sixths
-     */
-    #{$prefix}one-sixth         { width:16.666%; }
-    #{$prefix}two-sixths        { @extend #{$prefix}one-third; }
-    #{$prefix}three-sixths      { @extend #{$prefix}one-half; }
-    #{$prefix}four-sixths       { @extend #{$prefix}two-thirds; }
-    #{$prefix}five-sixths       { width:83.333%; }
-
-
-    /**
-     * Eighths
-     */
-    #{$prefix}one-eighth        { width:12.5%; }
-    #{$prefix}two-eighths       { @extend #{$prefix}one-quarter; }
-    #{$prefix}three-eighths     { width:37.5%; }
-    #{$prefix}four-eighths      { @extend #{$prefix}one-half; }
-    #{$prefix}five-eighths      { width:62.5%; }
-    #{$prefix}six-eighths       { @extend #{$prefix}three-quarters; }
-    #{$prefix}seven-eighths     { width:87.5%; }
-
-
-    /**
-     * Tenths
-     */
-    #{$prefix}one-tenth         { width:10%; }
-    #{$prefix}two-tenths        { @extend #{$prefix}one-fifth; }
-    #{$prefix}three-tenths      { width:30%; }
-    #{$prefix}four-tenths       { @extend #{$prefix}two-fifths; }
-    #{$prefix}five-tenths       { @extend #{$prefix}one-half; }
-    #{$prefix}six-tenths        { @extend #{$prefix}three-fifths; }
-    #{$prefix}seven-tenths      { width:70%; }
-    #{$prefix}eight-tenths      { @extend #{$prefix}four-fifths; }
-    #{$prefix}nine-tenths       { width:90%; }
-
-
-    /**
-     * Twelfths
-     */
-    #{$prefix}one-twelfth       { width:8.333%; }
-    #{$prefix}two-twelfths      { @extend #{$prefix}one-sixth; }
-    #{$prefix}three-twelfths    { @extend #{$prefix}one-quarter; }
-    #{$prefix}four-twelfths     { @extend #{$prefix}one-third; }
-    #{$prefix}five-twelfths     { width:41.666% }
-    #{$prefix}six-twelfths      { @extend #{$prefix}one-half; }
-    #{$prefix}seven-twelfths    { width:58.333%; }
-    #{$prefix}eight-twelfths    { @extend #{$prefix}two-thirds; }
-    #{$prefix}nine-twelfths     { @extend #{$prefix}three-quarters; }
-    #{$prefix}ten-twelfths      { @extend #{$prefix}five-sixths; }
-    #{$prefix}eleven-twelfths   { width:91.666%; }
-}
-
-
-/**
- * Our regular, non-responsive width classes.
- */
-@include device-type;
-
-
-/**
- * Our responsive classes, if we have enabled them.
- */
-@if $responsive {
-
-    @each $name in $breakpoint-has-widths {
-        @include grid-media-query($name) {
-           @include device-type('#{$name}--');
-        }
-    }
-
-}
-
-
-
-
-
-/*------------------------------------*\
-    $PUSH
-\*------------------------------------*/
-/**
- * Push classes, to move grid items over to the right by certain amounts.
- */
-@mixin push-setup($namespace: "") {
-    $prefix: $class-type + "push--" + $namespace;
-
-    /**
-     * Whole
-     */
-    #{$prefix}one-whole           { left:100%; @include silent-relative; }
-
-
-    /**
-     * Halves
-     */
-    #{$prefix}one-half            { left:50%; @include silent-relative; }
-
-
-    /**
-     * Thirds
-     */
-    #{$prefix}one-third           { left:33.333%; @include silent-relative; }
-    #{$prefix}two-thirds          { left:66.666%; @include silent-relative; }
-
-
-    /**
-     * Quarters
-     */
-    #{$prefix}one-quarter         { left:25%; @include silent-relative; }
-    #{$prefix}two-quarters        { @extend #{$prefix}one-half; }
-    #{$prefix}three-quarters      { left:75%; @include silent-relative; }
-
-
-    /**
-     * Fifths
-     */
-    #{$prefix}one-fifth           { left:20%; @include silent-relative; }
-    #{$prefix}two-fifths          { left:40%; @include silent-relative; }
-    #{$prefix}three-fifths        { left:60%; @include silent-relative; }
-    #{$prefix}four-fifths         { left:80%; @include silent-relative; }
-
-
-    /**
-     * Sixths
-     */
-    #{$prefix}one-sixth           { left:16.666%; @include silent-relative; }
-    #{$prefix}two-sixths          { @extend #{$prefix}one-third; }
-    #{$prefix}three-sixths        { @extend #{$prefix}one-half; }
-    #{$prefix}four-sixths         { @extend #{$prefix}two-thirds; }
-    #{$prefix}five-sixths         { left:83.333%; @include silent-relative; }
-
-
-    /**
-     * Eighths
-     */
-    #{$prefix}one-eighth          { left:12.5%; @include silent-relative; }
-    #{$prefix}two-eighths         { @extend #{$prefix}one-quarter; }
-    #{$prefix}three-eighths       { left:37.5%; @include silent-relative; }
-    #{$prefix}four-eighths        { @extend #{$prefix}one-half; }
-    #{$prefix}five-eighths        { left:62.5%; @include silent-relative; }
-    #{$prefix}six-eighths         { @extend #{$prefix}three-quarters; }
-    #{$prefix}seven-eighths       { left:87.5%; @include silent-relative; }
-
-
-    /**
-     * Tenths
-     */
-    #{$prefix}one-tenth           { left:10%; @include silent-relative; }
-    #{$prefix}two-tenths          { @extend #{$prefix}one-fifth; }
-    #{$prefix}three-tenths        { left:30%; @include silent-relative; }
-    #{$prefix}four-tenths         { @extend #{$prefix}two-fifths; }
-    #{$prefix}five-tenths         { @extend #{$prefix}one-half; }
-    #{$prefix}six-tenths          { @extend #{$prefix}three-fifths; }
-    #{$prefix}seven-tenths        { left:70%; @include silent-relative; }
-    #{$prefix}eight-tenths        { @extend #{$prefix}four-fifths; }
-    #{$prefix}nine-tenths         { left:90%; @include silent-relative; }
-
-
-    /**
-     * Twelfths
-     */
-    #{$prefix}one-twelfth         { left:8.333%; @include silent-relative; }
-    #{$prefix}two-twelfths        { @extend #{$prefix}one-sixth; }
-    #{$prefix}three-twelfths      { @extend #{$prefix}one-quarter; }
-    #{$prefix}four-twelfths       { @extend #{$prefix}one-third; }
-    #{$prefix}five-twelfths       { left:41.666%; @include silent-relative; }
-    #{$prefix}six-twelfths        { @extend #{$prefix}one-half; }
-    #{$prefix}seven-twelfths      { left:58.333%; @include silent-relative; }
-    #{$prefix}eight-twelfths      { @extend #{$prefix}two-thirds; }
-    #{$prefix}nine-twelfths       { @extend #{$prefix}three-quarters; }
-    #{$prefix}ten-twelfths        { @extend #{$prefix}five-sixths; }
-    #{$prefix}eleven-twelfths     { left:91.666%; @include silent-relative; }
-}
-
-@if $push {
-
-    /**
-     * Not a particularly great selector, but the DRYest way to do things.
-     */
-    [class*="push--"] { position:relative; }
-
-    @include push-setup;
-
-    @if $responsive {
-        @each $name in $breakpoint-has-push {
-            @include grid-media-query($name) {
-                @include push-setup('#{$name}--');
-            }
-        }
-    }
-
-}
-
-
-
-
-
-/*------------------------------------*\
-    $PULL
-\*------------------------------------*/
-/**
- * Pull classes, to move grid items back to the left by certain amounts.
- */
-@mixin pull-setup($namespace: "") {
-    $prefix: $class-type + "pull--" + $namespace;
-
-    /**
-     * Whole
-     */
-    #{$prefix}one-whole           { right:100%; @include silent-relative; }
-
-
-    /**
-     * Halves
-     */
-    #{$prefix}one-half            { right:50%; @include silent-relative; }
-
-
-    /**
-     * Thirds
-     */
-    #{$prefix}one-third           { right:33.333%; @include silent-relative; }
-    #{$prefix}two-thirds          { right:66.666%; @include silent-relative; }
-
-
-    /**
-     * Quarters
-     */
-    #{$prefix}one-quarter         { right:25%; @include silent-relative; }
-    #{$prefix}two-quarters        { @extend #{$prefix}one-half; }
-    #{$prefix}three-quarters      { right:75%; @include silent-relative; }
-
-
-    /**
-     * Fifths
-     */
-    #{$prefix}one-fifth           { right:20%; @include silent-relative; }
-    #{$prefix}two-fifths          { right:40%; @include silent-relative; }
-    #{$prefix}three-fifths        { right:60%; @include silent-relative; }
-    #{$prefix}four-fifths         { right:80%; @include silent-relative; }
-
-
-    /**
-     * Sixths
-     */
-    #{$prefix}one-sixth           { right:16.666%; @include silent-relative; }
-    #{$prefix}two-sixths          { @extend #{$prefix}one-third; }
-    #{$prefix}three-sixths        { @extend #{$prefix}one-half; }
-    #{$prefix}four-sixths         { @extend #{$prefix}two-thirds; }
-    #{$prefix}five-sixths         { right:83.333%; @include silent-relative; }
-
-
-    /**
-     * Eighths
-     */
-    #{$prefix}one-eighth          { right:12.5%; @include silent-relative; }
-    #{$prefix}two-eighths         { @extend #{$prefix}one-quarter; }
-    #{$prefix}three-eighths       { right:37.5%; @include silent-relative; }
-    #{$prefix}four-eighths        { @extend #{$prefix}one-half; }
-    #{$prefix}five-eighths        { right:62.5%; @include silent-relative; }
-    #{$prefix}six-eighths         { @extend #{$prefix}three-quarters; }
-    #{$prefix}seven-eighths       { right:87.5%; @include silent-relative; }
-
-
-    /**
-     * Tenths
-     */
-    #{$prefix}one-tenth           { right:10%; @include silent-relative; }
-    #{$prefix}two-tenths          { @extend #{$prefix}one-fifth; }
-    #{$prefix}three-tenths        { right:30%; @include silent-relative; }
-    #{$prefix}four-tenths         { @extend #{$prefix}two-fifths; }
-    #{$prefix}five-tenths         { @extend #{$prefix}one-half; }
-    #{$prefix}six-tenths          { @extend #{$prefix}three-fifths; }
-    #{$prefix}seven-tenths        { right:70%; @include silent-relative; }
-    #{$prefix}eight-tenths        { @extend #{$prefix}four-fifths; }
-    #{$prefix}nine-tenths         { right:90%; @include silent-relative; }
-
-
-    /**
-     * Twelfths
-     */
-    #{$prefix}one-twelfth         { right:8.333%; @include silent-relative; }
-    #{$prefix}two-twelfths        { @extend #{$prefix}one-sixth; }
-    #{$prefix}three-twelfths      { @extend #{$prefix}one-quarter; }
-    #{$prefix}four-twelfths       { @extend #{$prefix}one-third; }
-    #{$prefix}five-twelfths       { right:41.666%; @include silent-relative; }
-    #{$prefix}six-twelfths        { @extend #{$prefix}one-half; }
-    #{$prefix}seven-twelfths      { right:58.333%; @include silent-relative; }
-    #{$prefix}eight-twelfths      { @extend #{$prefix}two-thirds; }
-    #{$prefix}nine-twelfths       { @extend #{$prefix}three-quarters; }
-    #{$prefix}ten-twelfths        { @extend #{$prefix}five-sixths; }
-    #{$prefix}eleven-twelfths     { right:91.666%; @include silent-relative; }
-}
-
-@if $pull {
-
-    /**
-     * Not a particularly great selector, but the DRYest way to do things.
-     */
-    [class*="pull--"] { position:relative; }
-
-    @include pull-setup;
-
-    @if $responsive {
-        @each $name in $breakpoint-has-pull {
-            @include grid-media-query($name) {
-                @include pull-setup('#{$name}--');
-            }
-        }
-    }
-
-}

@@ -55,7 +55,7 @@
 @import "bower/inuit-defaults/settings.defaults";
 @import "settings.global";
 @import "settings.colors";
-@import "bower/inuit-responsive-settings/settings.responsive";
+@import "settings.responsive";
 
 
 
@@ -66,8 +66,8 @@
  */
 @import "bower/inuit-functions/tools.functions";
 @import "bower/inuit-mixins/tools.mixins";
-@import "tools.mixins";
 @import "bower/inuit-responsive-tools/tools.responsive";
+@import "tools.mixins";
 @import "tools.aliases";
 
 
@@ -106,7 +106,6 @@
  * #OBJECTS
  */
 @import "bower/inuit-buttons/objects.buttons";
-@import "bower/inuit-layout/objects.layout";
 @import "objects.layout";
 @import "bower/inuit-box/objects.box";
 @import "bower/inuit-media/objects.media";
@@ -116,7 +115,7 @@
 @import "bower/inuit-flag/objects.flag";
 @import "bower/inuit-list-ui/objects.list-ui";
 @import "objects.wrappers";
-@import "objects.block";
+@import "objects.cards";
 
 
 
@@ -140,7 +139,8 @@
 /**
  * #TRUMPS
  */
-@import "bower/inuit-widths/trumps.widths";
+
+//@import "bower/inuit-widths/trumps.widths";
 @import "trumps.links";
 @import "trumps.widths";
 @import "bower/inuit-spacing/trumps.spacing";
