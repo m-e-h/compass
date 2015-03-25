@@ -21,6 +21,8 @@
 
 			<div <?php hybrid_attr( 'wrap', 'footer' ); ?>>
 
+			<?php hybrid_get_sidebar( 'footer' ); ?>
+
 				<p class="credit">
 					<?php
 					printf(

@@ -70,22 +70,6 @@ if ( ! class_exists( 'Flagship_Library' ) ) {
 		public $author_box_admin;
 
 		/**
-		 * Placeholder for our breadcrumb display class instance.
-		 *
-		 * @since 1.4.0
-		 * @var   Flagship_Breadcrumb_Display
-		 */
-		public $breadcrumb_display;
-
-		/**
-		 * Placeholder for our footer widgets class instance.
-		 *
-		 * @since 1.4.0
-		 * @var   Flagship_Footer_Widgets
-		 */
-		public $footer_widgets;
-
-		/**
 		 * Placeholder for our site logo class instance.
 		 *
 		 * @since 1.4.0
@@ -336,14 +320,6 @@ if ( ! class_exists( 'Flagship_Library' ) ) {
 			if ( class_exists( 'Flagship_Author_Box', false ) ) {
 				$this->author_box = new Flagship_Author_Box;
 				$this->author_box->run();
-			}
-			if ( class_exists( 'Flagship_Breadcrumb_Display', false ) ) {
-				$this->breadcrumb_display = new Flagship_Breadcrumb_Display;
-				$this->breadcrumb_display->run();
-			}
-			if ( class_exists( 'Flagship_Footer_Widgets', false ) ) {
-				$this->footer_widgets = new Flagship_Footer_Widgets;
-				$this->footer_widgets->run();
 			}
 			add_action( 'init', array( $this, 'instantiate_logo' ), 13 );
 		}
